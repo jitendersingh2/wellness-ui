@@ -1,0 +1,173 @@
+p, ul {
+  color: #000;
+}
+
+.col-left, .col-right {
+  margin-top: 20px;
+}
+
+.btn-bcbsnc-primary {
+  background: none;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #DA7C30;
+  border-bottom: solid #cb632b 2px;
+  text-shadow: 0px 1px 1px #cb632b;
+  font-weight: bold;
+  width: 100%;
+}
+
+.btn-bcbsnc-primary:disabled {
+  background-color: lightgray;
+  border:none;
+  color: black;
+  text-shadow:none;
+}
+
+.col-left img {
+  margin: 35px 10%;
+  width: 80%;
+}
+
+.icon-card {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.icon-card p {
+  text-align: left;
+}
+
+.col-md-6 {
+  padding: 0;
+}
+
+.col-left {
+  padding-right: 20px;
+}
+
+.col-right {
+  background-color: #e8f3f6;
+  padding: 20px;
+}
+
+ul.account-navigation li.activeNav a:hover {
+    background-color: #008fda;
+}
+
+.activeNav {
+    background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px;
+    width: 155px;
+    margin: 0px !IMPORTANT;
+}
+
+.activeNav span {
+    background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent;
+    float: left;
+    position: absolute;
+    padding: 12px 5px 12px 0;
+    margin: 3px 0 0 181px ! important;
+}
+
+span.iconLink {
+    display: inline-block;
+}
+
+span.iconPDF {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.iconLink {
+    background: url('/assets/members/public/images/member-spritemap.png');
+    background-position: -588px -353px;
+    height: 14px;
+    width: 16px;
+    text-indent: 135%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0px;
+}
+
+.blue365-container ul.account-navigation,
+.blue365-container ul.account-navigation li,
+.blue365-container ul.account-navigation a {
+    width: 180px;
+}
+
+.blue365-container .lac-right-content {
+    width: 78%;
+}
+
+.blue365-container .lac-left-content {
+    width: 16%;
+    vertical-align: top;
+    margin: 25px 20px 10px 0px;
+}
+
+.blue365-container .inline-container {
+    display: inline-block;
+}
+
+/*SSO user agreement styles*/
+.unagreed-authorization-header {
+  margin-top: 20px;
+}
+
+.user-agreement-print-copy {
+    height: 200px;
+    overflow-y: scroll;
+    margin: 10px 0px;
+    border: solid 1px gray;
+    padding: 5px;
+    border-radius: 3px;
+    resize:vertical;
+}
+
+.user-agreement-checkboxes {
+  margin: 25px 0;
+}
+
+.user-agreement-checkbox {
+  display:block;
+}
+
+.user-agreement-checkbox input {
+  margin-right:5px;
+}
+
+.user-agreement-print-btn {
+  background-color: white;
+  border: solid #04506E 1px;
+  color: #04506E;
+  width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity:0;
+}
+
+/*Media Queries*/
+@media screen and (max-width: 991px) {
+    .blue365-container .lac-right-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .blue365-container ul.account-navigation,
+    .blue365-container ul.account-navigation li,
+    .blue365-container ul.account-navigation a {
+        width: 161px;
+    }
+}
+
+@media screen and (min-width: 991px) {
+  .user-agreement-print-btn, .btn-bcbsnc-primary {
+    width: 25%;
+  }
+}

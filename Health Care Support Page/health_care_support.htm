@@ -10,50 +10,84 @@
 	#parse( "members/secure/no-access.htm" )
 #end
 
+  <head>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../account.css">
+    <link rel="stylesheet" href="../blue365.css">
+    <link rel="stylesheet" href="../classic.css">
+    <link rel="stylesheet" href="../standard-508.css">
+
+    <style>
+      .content-header {
+        display: inline-flex;
+        background-color:aliceblue
+      }
+      .content-header-text {
+        padding: 15px 30px 15px 20px;
+      }
+      .content-header-text .margin-bottom-0 {
+        margin-bottom: 0px;
+      }
+      .content-header-img {
+        display: none;
+      }
+      @media screen and (min-width: 600px) {
+        .content-header-text {
+          padding-top: 25px;
+          padding-left: 10px;
+          padding-right: 40px;
+        }
+        .content-header-img {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+
 	<h1 id="main-content" tabindex="-1" class="pageHeader_27">Health Care Support</h1>
   <div class="pageContent">  <!-- main container -->
     <div class="">
-      <p>Get help when you need it most with the Health Care Support Program, a benefit of your State Health Plan. This program complements the care you receive from your primary care provider, specialists, and other medical providers.</p>
-      <p>With the Health Care Support Program, a team of dedicated medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
+      <div class="content-header">
+        <div class="content-header-text">
+          <p class="margin-bottom-0">Get help when you need it most with the Health Care Support Program&#42;, a benefit</p> 
+          <p class="margin-bottom-0">of your State Health Plan. This program complements the care you receive from </p>
+          <p>your primary care provider, specialists, and other medical providers.</p>
+        </div>
+        <div class="content-header-img">
+          <img 
+            src="../images/mobile-call-600x400.png"
+            width="160"
+            height="100"
+          />
+        </div>
+      </div>
+      <p>Get the support of a dedicated team of medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
       <ul>
-        <li>Complex health conditions</li>
-        <li>Newly diagnosed illnesses</li>
+        <li>Complex health conditions or Newly diagnosed illnesses</li>
         <li>Lifestyle changes that lead to better health</li>
         <li>Multiple providers and/or medications</li>
         <li>Understanding your provider&apos;s instructions</li>
-        <li>Short term disability</li>
+        <li>Understanding your benefits</li>
+        <li>Short&mdash;term disability</li>
         <li>Injuries from an accident</li>
-      </ul>
-
-      <h3 class="titleHeader_20_0_10_0">We Help You:</h3>
-      <ul>
-        <li>Understand your condition, your treatment options and your provider&apos;s treatment plan</li>
-        <li>Understand your benefits</li>
-        <li>Make informed decisions about your care based on what&apos;s important to you</li>
-        <li>Work with your providers and others on your medical team to coordinate your needs</li>
-        <li>Listen to your needs to help support you and the people who care about you</li>
-        <li>Connect to community resources</li>
-      </ul>
-
-      <h3 class="titleHeader_20_0_10_0">Participation in this program does <em>NOT</em></h3>
-      <ul>
-        <li>Replace your current care. You will continue to work with your provider(s)</li>
-        <li>Interfere with your schedule. We work with your schedule &mdash; how often you talk to us is up to you</li>
-        <li>Cost anything extra. This program is included in your State Health Plan benefits</li>
+        <li>Making connections to helpful community resources</li>
       </ul>
     </div>
 
     <div class="grayBlock" style="text-align: center; margin-top: 20px;">
       <p>
-        If you are dealing with a complex health condition or disease,<br />
-        or one of the other items from the list above<br />
-        and you feel you could benefit from speaking with a nurse, please call us at
-        <span style="white-space: nowrap;">1-833-298-1069</span><br />
+        If you need support,we&apos;re here for you<br />
+        Call <span style="white-space: nowrap;">1-833-298-1069</span><br />
         Monday &ndash; Friday 8 a.m. &ndash; 7:30 p.m. EST<br />
         Saturday 9 a.m. &ndash; 1 p.m. EST<br />
       </p>
     </div>
-		<hr clear="all"/>
+
+    <div class="vmargin25">
+			<p>The Health Care Support Program does not replace your current care and does not cost extra. You will continue to work with your 
+      provider&#40;s&#41;. This program is included in your State Health Plan benefits.</p>
+    </div>
+
 		<div class="footnote vmargin25">
 			<p>Blue Cross and Blue Shield of North Carolina is an independent licensee of the Blue Cross and Blue Shield
         Association. &reg; Marks of the Blue Cross and Blue Shield Association.</p>
