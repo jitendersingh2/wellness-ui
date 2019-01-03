@@ -1,0 +1,65 @@
+#set($header = "secure")
+#set($navigation = 5 )
+#set($footer = "secure")
+#set($onload = "wellness")
+#set($testing = true)
+
+#parse("members/secure/header.htm")
+
+#if(!$wo.defaultPolicy.isState)
+	#parse( "members/secure/no-access.htm" )
+#end
+
+	<h1 id="main-content" tabindex="-1" class="pageHeader_27">Health Care Support</h1>
+  <div class="pageContent">  <!-- main container -->
+    <div class="">
+      <p>Get help when you need it most with the Health Care Support Program, a benefit of your State Health Plan. This program complements the care you receive from your primary care provider, specialists, and other medical providers.</p>
+      <p>With the Health Care Support Program, a team of dedicated medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
+      <ul>
+        <li>Complex health conditions</li>
+        <li>Newly diagnosed illnesses</li>
+        <li>Lifestyle changes that lead to better health</li>
+        <li>Multiple providers and/or medications</li>
+        <li>Understanding your provider&apos;s instructions</li>
+        <li>Short term disability</li>
+        <li>Injuries from an accident</li>
+      </ul>
+
+      <h3 class="titleHeader_20_0_10_0">We Help You:</h3>
+      <ul>
+        <li>Understand your condition, your treatment options and your provider&apos;s treatment plan</li>
+        <li>Understand your benefits</li>
+        <li>Make informed decisions about your care based on what&apos;s important to you</li>
+        <li>Work with your providers and others on your medical team to coordinate your needs</li>
+        <li>Listen to your needs to help support you and the people who care about you</li>
+        <li>Connect to community resources</li>
+      </ul>
+
+      <h3 class="titleHeader_20_0_10_0">Participation in this program does <em>NOT</em></h3>
+      <ul>
+        <li>Replace your current care. You will continue to work with your provider(s)</li>
+        <li>Interfere with your schedule. We work with your schedule &mdash; how often you talk to us is up to you</li>
+        <li>Cost anything extra. This program is included in your State Health Plan benefits</li>
+      </ul>
+    </div>
+
+    <div class="grayBlock" style="text-align: center; margin-top: 20px;">
+      <p>
+        If you are dealing with a complex health condition or disease,<br />
+        or one of the other items from the list above<br />
+        and you feel you could benefit from speaking with a nurse, please call us at
+        <span style="white-space: nowrap;">1-833-298-1069</span><br />
+        Monday &ndash; Friday 8 a.m. &ndash; 7:30 p.m. EST<br />
+        Saturday 9 a.m. &ndash; 1 p.m. EST<br />
+      </p>
+    </div>
+		<hr clear="all"/>
+		<div class="footnote vmargin25">
+			<p>Blue Cross and Blue Shield of North Carolina is an independent licensee of the Blue Cross and Blue Shield
+        Association. &reg; Marks of the Blue Cross and Blue Shield Association.</p>
+    </div>
+
+	</div>  <!-- end pageContent -->
+
+#parse("members/secure/navigation.htm")
+#parse("members/secure/footer.htm")
