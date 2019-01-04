@@ -11,16 +11,11 @@
 #end
 
   <head>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../account.css">
-    <link rel="stylesheet" href="../blue365.css">
-    <link rel="stylesheet" href="../classic.css">
-    <link rel="stylesheet" href="../standard-508.css">
-
     <style>
       .content-header {
         display: inline-flex;
-        background-color:aliceblue
+        background-color:aliceblue;
+        background: none;
       }
       .content-header-text {
         padding: 15px 30px 15px 20px;
@@ -31,7 +26,16 @@
       .content-header-img {
         display: none;
       }
+      .margin-bottom-0 {
+        margin-bottom: 0px!important;
+      }
       @media screen and (min-width: 600px) {
+        .content-header {
+          background: url('/assets/members/public/images/wellness/mobile-call-600x400.png') no-repeat; padding:10px 290px 0 10px;height:154px;
+          background-position:top right;
+          background-color: #e9f7fe;
+          border:1px solid #d3d3d3;
+        }
         .content-header-text {
           padding-top: 25px;
           padding-left: 10px;
@@ -53,13 +57,13 @@
           <p class="margin-bottom-0">of your State Health Plan. This program complements the care you receive from </p>
           <p>your primary care provider, specialists, and other medical providers.</p>
         </div>
-        <div class="content-header-img">
+        <!-- <div class="content-header-img">
           <img 
             src="../images/mobile-call-600x400.png"
             width="160"
             height="100"
           />
-        </div>
+        </div> -->
       </div>
       <p>Get the support of a dedicated team of medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
       <ul>

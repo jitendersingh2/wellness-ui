@@ -39,6 +39,28 @@
 <!-- isPopHealth: $wo.defaultPolicy.isPopHealth -->
 <!-- loggedInMember.getPolicyAttributeByName(populationHealthCode): $loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,"populationHealthCode") -->
 
+    
+    <head>
+      <style>
+        #healthPartnership {
+            background: none;
+        }
+        .header-btn {
+            text-align: center;
+        }
+        @media screen and (min-width: 600px) {
+            #healthPartnership {
+                background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 290px 0 10px;height:154px;
+                background-position:top right;
+                background-color: #e9f7fe;
+                border:1px solid #d3d3d3;
+            }
+            .header-btn {
+                text-align: left;
+            }
+        }
+      </style>
+    </head>
     <h1 id="main-content" tabindex="-1" class="pageHeader_27">
         #if($wo.defaultPolicy.isPopHealth)
         Get Healthy
@@ -53,12 +75,14 @@
         <div id="mainContentContainer" style="float:right;width:100%;">
             <!--  main content area  -->
             #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
-            <div id="healthPartnership" style="background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 290px 0 10px;height:154px;background-position:top right;background-color: #e9f7fe;border:1px solid #d3d3d3">
+            <div id="healthPartnership">
                 #if($wo.defaultPolicy.isPopHealth)
                 <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
                 
-                <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
-                
+                <div class="header-btn">
+                    <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
+                </div>
+
                 <p><strong>Take a look below at the various resources available to help you.</strong></p>
                 #else
                 <p style="margin:5px 0 20px;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our <strong>Healthy Outcomes</strong> programs encourage our members to get healthy, help members understand and manage chronic health conditions, and promote preventive health and wellness activities.</p>
