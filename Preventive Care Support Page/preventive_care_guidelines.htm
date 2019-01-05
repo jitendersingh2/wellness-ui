@@ -138,7 +138,8 @@
 						<div class="col-xs-8 col-md-6">
 							<p class="titleLinkicon">
 								<a href="/assets/members/public/pdf/U2986_staying_healthy_web.pdf" target="_blank">
-									Guidelines for Staying Healthy</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>
+									Guidelines for Staying Healthy</a>
+								<img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>
 							</p>
 							#if(!$wo.feature.isBBT)
 								#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6 ')))
@@ -168,153 +169,161 @@
 			<div class="row pcg-navbar-container">
 				<ul class="list-inline pcg-navbar">
 					<li class="noContent"><span style="visibility:hidden">no</span></li>
-					<li class="content active" target="new">Babies and Toddlers (0-35 months)</li>
-					<li class="content" target="children">Children and Adolescents (3-18 years)</li>
-					<li class="content" target="adult">Adults (19+ years)</li>
+					<li id="first-content" class="content active" target="new">Babies and Toddlers (0-35 months)</li>
+					<li id="second-content" class="content" target="children">Children and Adolescents (3-18 years)</li>
+					<li id="third-content" class="content" target="adult">Adults (19+ years)</li>
 					<li class="noContent">&nbsp;</li>
 				</ul>
 			</div>
 			<br />
 			<!-- 0-35 months -->
-			<div id="new" class="pcg-navbar-content nav-content-show">
-				<h3>Babies and Toddlers (0-35 months)</h3>
-				<p>Your baby should visit the doctor for regular check-ups at the following ages:</p>
-				<ul>
-					<li>2-4 days</li>
-					<li>2 weeks to 1 month </li>
-					<li>2 months </li>
-					<li>4 months</li>
-					<li>6 months </li>
-					<li>9 months </li>
-					<li>12 months   </li>
-					<li>15 months </li>
-					<li>18 months </li>
-					<li>24 months </li>
-					<li>30 months </li>
-				</ul>
-				<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf">English version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p> -->
-				<p>The doctor will conduct routine screenings and tests including: </p>
-				<ul>
-					<li>Length and weight </li>
-					<li>Physical exam </li>
-					<li>Developmental and behavioral assessment	</li>
-					<li>Hemoglobin (12 months to test for anemia)</li>
-					<li>Hearing</li>
-				</ul>
-	<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/> </p> -->
-				<p>Your doctor may also ask about the following issues:</p>
-				<ul>
-					<li>	Diet </li>
-					<li>	Injury prevention </li>
-					<li>	Car seat use </li>
-					<li>	Dental health </li>
-					<li>	Effects of second hand smoke </li>
-				</ul>
-				<p>If your doctor does not ask about any of these health issues, you should bring them up if you have questions or concerns.</p>
+			<div id="new" class="row pcg-navbar-content nav-content-show">
+				<div class="col-xs-12 col-md-8">
+					<h3>Babies and Toddlers (0-35 months)</h3>
+					<p>Your baby should visit the doctor for regular check-ups at the following ages:</p>
+					<ul>
+						<li>2-4 days</li>
+						<li>2 weeks to 1 month </li>
+						<li>2 months </li>
+						<li>4 months</li>
+						<li>6 months </li>
+						<li>9 months </li>
+						<li>12 months   </li>
+						<li>15 months </li>
+						<li>18 months </li>
+						<li>24 months </li>
+						<li>30 months </li>
+					</ul>
+					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf">English version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p> -->
+					<p>The doctor will conduct routine screenings and tests including: </p>
+					<ul>
+						<li>Length and weight </li>
+						<li>Physical exam </li>
+						<li>Developmental and behavioral assessment	</li>
+						<li>Hemoglobin (12 months to test for anemia)</li>
+						<li>Hearing</li>
+					</ul>
+					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/> </p> -->
+					<p>Your doctor may also ask about the following issues:</p>
+					<ul>
+						<li>	Diet </li>
+						<li>	Injury prevention </li>
+						<li>	Car seat use </li>
+						<li>	Dental health </li>
+						<li>	Effects of second hand smoke </li>
+					</ul>
+					<p>If your doctor does not ask about any of these health issues, you should bring them up if you have questions or concerns.</p>
+				</div>
+				<div class="col-md-4 pcg-nav-content-img">
+					<img 
+						src="/assets/members/public/images/wellness/babies-toddlers-400x300.png"
+						height="200"
+						width="280"
+					/>
+				</div>
 			</div>
 			<!-- 3-18 years -->
-			<div id="children" class="pcg-navbar-content hidden">
-				<h3 class="titleHeader_20_0_10_0">Children and Adolescents (3 to 18 years)</h3>
-				<p>Children ages 3 to 18 should visit their pediatrician for a routine check-up each year. Routine screening and tests include:</p>
-				<ul>
-					<li>Height and weight (screening for healthy weight) </li>
-					<li>	Blood pressure </li>
-					<li>	Vision screening</li>
-					<li>	Hearing </li>
-					<li>	Developmental and behavioral assessment </li>
-									<li>Depression screening from age 11 </li>
-					<li>	Chlamydia and gonorrhea tests for sexually active girls </li>
-					<li>	HIV screening for adolescents ages 15-18</li>
-					<li> Physical exam </li>
-				</ul>
-			<p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
-				<p>Download the Children and Adolescents (7-18 years) Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
-			<p>Your doctor may also ask about the following issues:</p>
-				<ul>
-					<li>	Nutrition </li>
-					<li>Exercise </li>
-					<li>	Accident prevention (seatbelt or car seat use, helmets, etc.) </li>
-					<li>	Smoking, drug use, and safe sex practices </li>
-				</ul>
-				<p>If your doctor does not bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+			<div id="children" class="row pcg-navbar-content hidden">
+				<div class="col-xs-12 col-md-8">
+					<h3 class="titleHeader_20_0_10_0">Children and Adolescents (3 to 18 years)</h3>
+					<p>Children ages 3 to 18 should visit their pediatrician for a routine check-up each year. Routine screening and tests include:</p>
+					<ul>
+						<li>Height and weight (screening for healthy weight)</li>
+						<li>Blood pressure</li>
+						<li>Vision screening</li>
+						<li>Hearing</li>
+						<li>Developmental and behavioral assessment</li>
+						<li>Depression screening from age 11</li>
+						<li>Chlamydia and gonorrhea tests for sexually active girls</li>
+						<li>HIV screening for adolescents ages 15-18</li>
+						<li>Physical exam </li>
+					</ul>
+					<p>Download the Children under 18 Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
+					<p>Your doctor may also ask about the following issues:</p>
+					<ul>
+						<li>Nutrition</li>
+						<li>Exercise</li>
+						<li>Accident prevention (seatbelt or car seat use, helmets, etc.)</li>
+						<li>Smoking, drug use, and safe sex practices</li>
+					</ul>
+					<p>If your doctor does not bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+				</div>
+				<div class="col-md-4 pcg-nav-content-img">
+					<img 
+						src="/assets/members/public/images/wellness/teens-400x300.png"
+						height="200"
+						width="280"
+					/>
+				</div>
 			</div>
 			<!-- 19+ years -->
 			<div id="adult" class="pcg-navbar-content hidden">
-				<h3 class="titleHeader_20_0_10_0">Adults (19+ years)</h3>
-				<p>Adults ages 19+ should visit their doctor for a routine check-up every one to three years and after 65+ annually.</p>
-				#if(!$wo.feature.isBBT && !$wo.defaultPolicy.isPopHealth)
-					#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6 ')))
-						#if($wo.defaultPolicy.isHSA)
-							<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
-						#elseif(!$wo.defaultPolicy.isState)
-							<p class="titleLinkicon"><a href="/assets/members/public/pdf/U12770b_BO_Preventive_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
-						#end
-					#else
-						<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
-					#end
-				#else
-					<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
-				#end
-				<ul>
-					<li>Routine screening and testing</li>
-					<li>Height and weight (body mass index-screening for healthy weight) </li>
-					<li>Blood pressure </li>
-					<li>Vision screening</li>
-					<li>Chlamydia and gonorrhea for women (age 24 and younger) </li>
-					<li>Cholesterol for men, starting at age 35 </li>
-					<li>Colon cancer<sup>1</sup> screening starting from 50-75 </li>
-					<li>Mammogram every one to two years for women ages 50-74</li>
-					<li>Pap test  every  3 years, from ages 21-65</li>
-					<li>Bone density test for women to screen for osteoporosis, as recommended by your doctor</li>
-					<li>HIV screening (up  to age 65)</li>
-				</ul>
-	  		<p>Your doctor may also want to discuss the following:</p>
-				<ul>
-					<li>Nutrition </li>
-					<li>Exercise </li>
-					<li>Seatbelt use </li>
-					<li>Smoking, drug and alcohol use </li>
-					<li>Depression </li>
-					<li>Safe sex </li>
-	  		</ul>
-	  		<p>If your doctor doesn't bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+				<div class="col-xs-12 col-md-8">
+					<h3 class="titleHeader_20_0_10_0">Adults (19+ years)</h3>
+					<p>Adults ages 19+ should visit their doctor for a routine check-up every one to three years and after 65+ annually.</p>
+					<p style="font-weight:bold;">Women and Men:</p>
+					<ul>
+						<li>Routine screening and testing</li>
+						<li>Height and weight</li>
+						<li>Blood pressure </li>
+						<li>Depression screening</li>
+						<li>Diabetes screening for overweight or obese adults</li>
+						<li>Cholesterol screening for adults ages 40-75</li>
+						<li>Colon cancer screening for ages 50-75<sup>1</sup></li>
+						<li>HIV screening (up to age 65)</li>
+					</ul>
+					<p style="font-weight:bold;">Women Only:</p>
+					<ul>
+						<li>Chlamydia and gonorrhea for women ages 24 and younger</li>
+						<li>Mammogram every one to two years for women ages 50-74</li>
+						<li>Pap test every three years starting at age 21. Every five years for women ages 30-65, if done with human papillomavirus (HPV) test</li>
+						<li>Bone density test<sup>2</sup> to screen for osteoporosis, as recommended by your doctor</li>
+					</ul>
+					<p style="font-weight:bold;">Your doctor may also want to discuss the following:</p>
+					<ul>
+						<li>Nutrition</li>
+						<li>Exercise</li>
+						<li>Seatbelt use</li>
+						<li>Smoking, drug and alcohol use</li>
+						<li>Depression</li>
+						<li>Safe sex</li>
+					</ul>
+					<p>If your doctor doesn't bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+					<h3 class="titleHeader_20_0_10_0">Vaccines</h3>
+					<p>Download the Adult Vaccine Schedule from:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC.gov.</a></p>
+					<ul>
+						<li>Tetanus, Diphtheria, pertussis (whooping cough) vaccine (Tdap vaccine once, 10 years after your last tetanus followed by Td every 10 years) </li>
+						<li>Influenza (Flu) vaccine (annually)</li>
+						<li>Hepatitis B vaccine (adults at risk)</li>
+						<li>Measles-Mumps-Rubella (MMR) vaccine (adults who've never received vaccine)</li>
+						<li>Meningococcal vaccine (college students in dormitories) </li>
+						<li>Varicella (chickenpox) vaccine (two doses for adults who've never had chicken pox and never received vaccine)</li>
+						<li>Human papillomavirus (HPV) vaccine (protects against cervical cancer and genital warts - recommended for ages 19-26)</li>
+						<li>Pneumococcal vaccine (at risk adults of any age, or once after agr 64) </li>
+						<li>Zoster (shingles) vaccine (adults 50 and older, one dose)<sup>3</sup> Note: If you have received one dose of Zostavax vaccine for shingles, you should also get two doses of Shingrix vaccine</li>
+					</ul>
+
+					<div class="clear"></div>
+					<div  class="footnote vmargin25 col-md-12">
+						<p>1. One of the following screening tests is recommended:</p>
+						<p>2. Refer to the BCBSNC Medical Policy on Bone Mineral Density Studies</p>
+						<p>3. The shingles vaccine is covered in accordance with the  Food and Drug Administration (FDA) guidelines.&nbsp; </p>
+						<p>BCBSNC provides these guidelines to help you understand how to best manage your health.</p>
+						<p>These are general health guidelines; your doctor may have more specific advice for you. These guidelines were written based on recommendations from national organizations, including the U.S. Preventive Services Task Force, American Academy of Pediatrics, and American Academy of Family Physicians. Our guidelines are updated periodically as new medical advances are made in preventive health.
+							To minimize out-of-pocket costs, visit an in-network provider for your preventive care. These guidelines are subject to the limitations of each member's preventive care benefits, so check your benefit booklet for details about your specific preventive care benefits. Services that are not delivered in an in-network, office-based setting or stand alone clinic filing as an office visit and services that include additional procedures or diagnostic services may be subject to your copay, deductible and coinsurance.</p>
+					</div>
+				</div>
+				<div class="col-md-4 pcg-nav-content-img">
+					<img 
+						src="/assets/members/public/images/wellness/adults-400x300.png"
+						height="200"
+						width="280"
+					/>
+				</div>
 			</div>
-			<!-- <h3 class="titleHeader_20_0_10_0">Vaccines</h3>
-			<p>Download the Adult Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC Website</a></p>
-			<ul>
-				<li>	Tetanus, Diphtheria, pertussis (whooping cough) vaccine (Tdap vaccine once, 10 years after your last tetanus followed by Td every 10 years) </li>
-				<li>Influenza (Flu) vaccine (annually)</li>
-	  			<li>	Hepatitis B vaccine (adults at risk)</li>
-				<li>	Measles-Mumps-Rubella (MMR) vaccine (adults who've never received vaccine) </li>
-				<li>	Meningococcal vaccine (college students in dormitories) </li>
-				<li>	Varicella (chickenpox) vaccine (adults who've never had chicken pox and never received vaccine) </li>
-				<li>	Human papillomavirus or HPV (protects against cervical cancer and genital warts) (adult women ages 19-26) </li>
-				<li>	Pneumococcal vaccine (adults at risk) </li>
-				<li>	Zoster (shingles) vaccine (adults 50+, one dose)<sup>3</sup></li>
-			</ul> -->
 
 			</div>
 			</div>
-
-			<div class="clear"></div>
-
-
-			<!-- <a name="adults65"></a>
-			<div  class="footnote vmargin25 col-md-12">
-				<p>1. One of the following screening tests is recommended:</p>
-				<ul>
-					<li>Flexible sigmoidoscopy, every five years </li>
-				    <li>Annual fecal occult blood test (FOBT) or stool sample
-				    </li>
-			      <li>	Total colon examination by colonoscopy, every 10 years </li>
-				</ul>
-			  <p>2. Refer to the BCBSNC Medical Policy on Bone Mineral Density Studies</p>
-			  <p>3. The shingles vaccine is covered in accordance with the  Food and Drug Administration (FDA) guidelines.&nbsp; </p>
-			  <p>BCBSNC provides these guidelines to help you understand how to best manage your health. </p>
-				<p>These are general health guidelines; your doctor may have more specific advice for you. These guidelines were written based on recommendations from national organizations, including the U.S. Preventive Services Task Force, American Academy of Pediatrics, and American Academy of Family Physicians. Our guidelines are updated periodically as new medical advances are made in preventive health.
-						To minimize out-of-pocket costs, visit an in-network provider for your preventive care. These guidelines are subject to the limitations of each member's preventive care benefits, so check your benefit booklet for details about your specific preventive care benefits. Services that are not delivered in an in-network, office-based setting or stand alone clinic filing as an office visit and services that include additional procedures or diagnostic services may be subject to your copay, deductible and coinsurance.</p> -->
-
-									</div>
 </div>
 </div>
 
@@ -328,9 +337,9 @@
 </script>
 
 <style>
-.pcg-header-img{
+/* .pcg-header-img{
   display: none;	
-}
+} */
 @media screen and (max-width: 600px) {
   .pcg-header-img{
 	display: none;	
@@ -341,7 +350,24 @@
   .pcg-navbar li.content{
 	display: block;
 	text-align: center;
+	background-color: darkgray!important;
+	border-top-left-radius: 0px!important;
+    border-top-right-radius: 0px!important;
+	border-right: none!important;
+	border-left: none!important;
+	border-top: none!important;
+	border-bottom: 1px solid black!important;
+	margin-right: 0px;
   }
+  .pcg-navbar #first-content{
+	border-top: 1px solid black!important;
+  }
+  .pcg-nav-content-img{
+	display: none;
+  }
+}
+.pcg-nav-content-img{
+  padding-top: 55px;
 }
 .pcg-content-header{
   background-color: #e9f7fe;
@@ -357,6 +383,7 @@
 }
 .pcg-navbar li.content{
   cursor: pointer;
+  font-weight: bold;
   padding:10px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -367,6 +394,9 @@
   border-bottom: 2px solid darkgray;
   margin-right: -6px;
 }
+.pcg-navbar #third-content{
+  border-right: 4px solid darkgray;
+}
 .pcg-navbar li.noContent{
   padding:10px;
   background-color: white;
@@ -374,11 +404,11 @@
   margin-right: -6px;
 }
 .pcg-navbar li.active{
-  background-color: white;
+  background-color: white!important;
   border-top: 2px solid darkgray;
   border-right: 2px solid darkgray;
   border-left: 2px solid darkgray;
-  border-bottom: none!important;
+  border-bottom: none;
 }
 .pcg-navbar a{
   text-decoration: none;
