@@ -1,4 +1,3 @@
-
 #set($header = "secure")
 #set($navigation = 5 )
 #set($footer = "secure")
@@ -152,7 +151,7 @@
             #if($wo.program.alere && $wo.thisMember.age > 17)
             <p><sup style="font-size:.9em;">1</sup>Blue  Cross and Blue Shield of North Carolina (BCBSNC) has contracted with Optum to bring you this service. The information contained within is intended as a resource and is not intended to provide medical advice.</p>
             #elseif($wo.defaultPolicy.isPopHealth && $wo.thisMember.age > 17)
-            <p><sup style="font-size: 0.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
+            <p><sup style="font-size:.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
             #end
             <p>Eligibility for the Healthy Outcomes wellness program is dependent on several factors, including product enrollment.  Please see program terms and conditions for details.</p>
             <p>BCBSNC offers Healthy Outcomes programs as a convenience to aid you in improving your health; results are not guaranteed. BCBSNC contracts with Optum, an independent third party vendor, for the provision of certain aspects of Healthy Outcomes programs and is not liable in any way for goods or services received from Optum. Optum does not provide Blue Cross or Blue Shield products or services. BCBSNC reserves the right to discontinue or change Healthy Outcomes programs at any time. The programs are educational in nature, and are intended to help you make informed decisions about your health, and to help you comply with your doctor's plan of care. Decisions regarding your care should be made with the advice of your doctor.</p>
@@ -188,8 +187,3 @@
 
 #parse("members/secure/navigation.htm")
 #parse("members/secure/footer.htm")
-
-
-
-
-
