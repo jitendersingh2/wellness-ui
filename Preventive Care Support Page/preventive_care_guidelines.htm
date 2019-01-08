@@ -118,13 +118,13 @@
               #end
 						</div>
 
-<div id="main-content" class="inline-container lac-right-content" tabindex="-1">
+<div id="main-content" class="inline-container lac-right-content">
 
 	<!-- <h1>Preventive Care Guidelines</h1> -->
 
   	<div class="">
-		<div class="col-md-12">
-			<h1>Preventive Care Guidelines</h1><br />
+		<div class="col-md-12" style="background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) 0px 0px no-repeat;">
+			<h1 style="margin-top: 40px;margin-bottom: 50px;">Preventive Care Guidelines</h1>
 			<div class="row pcg-content-header">
 				<div class="col-xs-12 col-md-9">
 					<h3 class="titleHeaderVisitingtheDoctor" style="font-weight: bold;">Visiting the Doctor</h3>
@@ -161,7 +161,7 @@
 				<div class="col-md-3 pcg-header-img">
 					<img 
 						src="/assets/members/public/images/wellness/patient-checkup-600x400.png" 
-						height="200"
+						height="170"
 						width="207"
 					  	alt="Patient Checkup"/>
 				</div>
@@ -173,7 +173,7 @@
 					<li id="first-content" class="content active" target="new">Babies and Toddlers (0-35 months)</li>
 					<li id="second-content" class="content" target="children">Children and Adolescents (3-18 years)</li>
 					<li id="third-content" class="content" target="adult">Adults (19+ years)</li>
-					<li class="noContent">&nbsp;</li>
+					<li class="noContent"><span style="visibility:hidden">no</span></li>
 				</ul>
 			</div>
 			<br />
@@ -329,13 +329,11 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-	$('.pcg-navbar li').click(function (e) {
-	  $('.pcg-navbar li').removeClass('active');
-	  $(this).addClass('active');
-	  $('.pcg-navbar-content').addClass('hidden');
-	  $('#'+$(this).attr('target')).removeClass('hidden');
-	});  
+  $('.pcg-navbar li').click(function (e) {
+	$('.pcg-navbar li').removeClass('active');
+	$(this).addClass('active');
+	$('.pcg-navbar-content').addClass('hidden');
+	$('#'+$(this).attr('target')).removeClass('hidden');
   })
 </script>
 
@@ -398,7 +396,7 @@
   margin-right: -6px;
 }
 .pcg-navbar #third-content{
-  border-right: 4px solid darkgray;
+  border-right: 5px solid darkgray;
 }
 .pcg-navbar li.noContent{
   padding:10px;
@@ -427,6 +425,7 @@ margin:0px !IMPORTANT;
 }
 .activeNav span {
 background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent;
+height: 100%;
 float:left;
 position: absolute;
 padding: 12px 5px 12px 0;
@@ -454,7 +453,7 @@ display: inline-block;
 .buttonblue { -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; height:30px; color:#fff; padding:5px 15px 7px 15px; font-size:14px; background: #239ad8 url('https://wwwps.bcbsnc.com/assets/members/public/images/member-spritemap-bgs.png') 0px -85px; border:1px solid #239ad8; }
 .buttonblue:hover { background-position: 0px -54px; border:1px solid #0074b0; cursor:pointer;}
 .vmargin25 { margin-top:15px; }
-.footnote  { font-size: .8em; color:#f3f3f3; }
+.footnote  { font-size: .8em; background-color:#f3f3f3; }
 .footnote sup { font-size: .7em; color:#666; }
 .footnote p, .footnote ul li{ font-size: 10px; }
 #wellnesshealthassessmentContainerGray {background: url("https://wwwps.bcbsnc.com/assets/members/public/images/health_assessment.jpg") no-repeat top left;background-color:#F3F3F3;padding:10px 0px 0px 200px;}
