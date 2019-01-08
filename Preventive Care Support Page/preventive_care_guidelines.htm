@@ -127,7 +127,7 @@
 			<h1 style="margin-top: 40px;margin-bottom: 50px;">Preventive Care Guidelines</h1>
 			<div class="row pcg-content-header">
 				<div class="col-xs-12 col-md-9">
-					<h3 class="titleHeaderVisitingtheDoctor" style="font-weight: bold;">Visiting the Doctor</h3>
+					<h3 class="titleHeaderVisitingtheDoctor" style="font-weight: bold;"><img class="pcg-doc-image" src="/assets/members/public/images/wellness/doctor-solid.png" height="35" width="35" alt="Doctor"/> Visiting the Doctor</h3>
 					<p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. BCBSNC has compiled the following health guidelines for family members of all ages.  </p>
 					<p>Check your
 						#parse( "members/secure/benefits/include_benefits_booklet.htm" )
@@ -143,7 +143,7 @@
 								<img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>
 							</p>
 							#if(!$wo.feature.isBBT)
-								#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6 ')))
+								#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6')))
 									#if($wo.defaultPolicy.isHSA)
 										<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
 									#elseif(!$wo.defaultPolicy.isState)
@@ -207,11 +207,11 @@
 					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/> </p> -->
 					<p>Your doctor may also ask about the following issues:</p>
 					<ul>
-						<li>	Diet </li>
-						<li>	Injury prevention </li>
-						<li>	Car seat use </li>
-						<li>	Dental health </li>
-						<li>	Effects of second hand smoke </li>
+						<li>Diet</li>
+						<li>Injury prevention</li>
+						<li>Car seat use</li>
+						<li>Dental health</li>
+						<li>Effects of second hand smoke</li>
 					</ul>
 					<p>If your doctor does not ask about any of these health issues, you should bring them up if you have questions or concerns.</p>
 				</div>
@@ -345,6 +345,9 @@
   .pcg-header-img{
 	display: none;	
   }
+  .pcg-doc-image{
+	display: inline-block!important;
+  }
   .pcg-navbar li.noContent{
 	display: none;
   }
@@ -362,10 +365,14 @@
   }
   .pcg-navbar #first-content{
 	border-top: 1px solid black!important;
+	border-bottom: 1px solid black!important;
   }
   .pcg-nav-content-img{
 	display: none;
   }
+}
+.pcg-doc-image{
+  display: none;
 }
 .pcg-nav-content-img{
   padding-top: 55px;
@@ -409,7 +416,7 @@
   border-top: 2px solid darkgray;
   border-right: 2px solid darkgray;
   border-left: 2px solid darkgray;
-  border-bottom: none!important;
+  border-bottom: none;
 }
 .pcg-navbar a{
   text-decoration: none;
