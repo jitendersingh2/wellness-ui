@@ -48,6 +48,12 @@
         .header-btn {
           text-align: center;
         }
+        .resources-link {
+          text-decoration: none;
+        }
+        .resources-link:hover {
+          text-decoration: underline;
+        }
         @media screen and (min-width: 600px) {
             #healthPartnership {
               background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; 
@@ -121,7 +127,7 @@
 
             #if(($wo.program.alere || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
             <div id="HealthyWiseKnowledge" class="clear">
-                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="border-bottom: 1px solid #009ef2; margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="text-decoration:none;position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="iconLink">&nbsp;</span></p></h3>
+                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" class="resources-link" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="text-decoration:none;position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="iconLink">&nbsp;</span></p></h3>
                 <p>Our online health encyclopedia lets you look up a wide variety of symptoms, health conditions, medical tests, treatments and medications.</p>
             </div>
             #end
@@ -132,14 +138,14 @@
             -->
             
             #if($wo.defaultPolicy.isPopHealth)
-            <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care</a></p>
-            <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="#">Learn more</a> about preventive health guidelines for family members of all ages.</p>
+            <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm" class="resources-link">Preventive Care</a></p>
+            <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="#" class="resources-link">Learn more</a> about preventive health guidelines for family members of all ages.</p>
             #end
             
-            <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" target="_blank">Live Happier &amp; Healthier</a> <span class="iconLink">&nbsp;</span></p>
+            <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" class="resources-link" target="_blank">Live Happier &amp; Healthier</a> <span class="iconLink">&nbsp;</span></p>
             <p>Blue Cross NC's destination for fitness, recipes, and lifestyle tips.</p>
         
-            <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm">Member Discounts: Blue 365 Program</a></p>
+            <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm" class="resources-link">Member Discounts: Blue 365 Program</a></p>
             <p>Find great member discounts on fitness and health tools.</p>
 
             <hr class="topMargin20" />
