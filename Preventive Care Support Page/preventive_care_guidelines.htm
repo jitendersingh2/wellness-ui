@@ -15,10 +15,10 @@
 <head>
   <title>Blue Connect - Blue Cross and Blue Shield of North Carolina</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/global/css/classic.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/global/css/classic.css">
   <link rel="stylesheet" href="/assets/members/public/account/css/account.css">
-
+	
 	<script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
 	<script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
@@ -89,8 +89,9 @@
               				<li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
               			#end
               			#if($wo.program.onlineHealthPortal || $wo.program.alere ||  $wo.defaultPolicy.isState)
-              				<li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
-              					<ul class="resources-subnav hide subnav">
+              				<li id="resources-navigator" class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
+												<p></p>
+												<ul class="resources-subnav hide subnav">
               						<li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
               						#if($wo.thisMember.age > 17 && $wo.program.healthCoach)
               							<li><a href="/members/secure/wellness/resources/wellness_coaching.htm">Lifestyle Coaching </a></li>
@@ -103,7 +104,7 @@
               			#end
               		#end
               		#if($wo.defaultPolicy.isPopHealth)
-              				<li><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+              				<li id="hcs-navigator"><p></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
               		<li id="pcg-navigator"><p></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)
@@ -136,24 +137,24 @@
 						<div class="col-xs-4 col-md-3" style="width: 180px;">
 							Additional Resources:
 						</div>
-						<div class="col-xs-8 col-md-6">
+						<div class="col-xs-8 col-md-6 pcg-sub-header-1">
 							<p class="titleLinkicon">
-								<a href="/assets/members/public/pdf/U2986_staying_healthy_web.pdf" target="_blank">
+								<a href="/assets/members/public/pdf/U2986_staying_healthy_web.pdf" class="resources-link" target="_blank">
 									Guidelines for Staying Healthy</a>
-								<img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>
+								<img src="/assets/members/public/images/wellness/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/>
 							</p>
 							#if(!$wo.feature.isBBT)
 								#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6')))
 									#if($wo.defaultPolicy.isHSA)
-										<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+										<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" class="resources-link" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/wellness/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/></p>
 									#elseif(!$wo.defaultPolicy.isState)
-										<p class="titleLinkicon"><a href="/assets/members/public/pdf/U12770b_BO_Preventive_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+										<p class="titleLinkicon"><a href="/assets/members/public/pdf/U12770b_BO_Preventive_GF-508.pdf" class="resources-link" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/wellness/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/></p>
 									#end
 								#elseif(!$wo.defaultPolicy.isPopHealth)
-									<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+									<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" class="resources-link" target="_blank">Learn More About Preventive Care</a></p>
 								#end
 							#elseif(!$wo.defaultPolicy.isPopHealth)
-								<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+								<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" class="resources-link" target="_blank">Learn More About Preventive Care</a></p>
 							#end
 						</div>
 					</div>
@@ -163,17 +164,17 @@
 						src="/assets/members/public/images/wellness/patient-checkup-600x400.png" 
 						height="170"
 						width="207"
-					  	alt="Patient Checkup"/>
+					  alt="Patient Checkup"/>
 				</div>
 			</div>
 
 			<div class="row pcg-navbar-container">
 				<ul class="list-inline pcg-navbar">
-					<li class="noContent"><span style="visibility:hidden">no</span></li>
+					<li class="noContent1"><span style="visibility:hidden">no</span></li>
 					<li id="first-content" class="content active" target="new">Babies and Toddlers (0-35 months)</li>
 					<li id="second-content" class="content" target="children">Children and Adolescents (3-18 years)</li>
 					<li id="third-content" class="content" target="adult">Adults (19+ years)</li>
-					<li class="noContent"><span style="visibility:hidden">no</span></li>
+					<li class="noContent2"><span style="visibility:hidden">no</span></li>
 				</ul>
 			</div>
 			<br />
@@ -195,7 +196,7 @@
 						<li>24 months </li>
 						<li>30 months </li>
 					</ul>
-					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf">English version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p> -->
+					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf">English version</a><img src="/assets/members/public/images/wellness/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/>  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a><img src="/assets/members/public/images/wellness/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/></p> -->
 					<p>The doctor will conduct routine screenings and tests including: </p>
 					<ul>
 						<li>Length and weight </li>
@@ -204,7 +205,7 @@
 						<li>Hemoglobin (12 months to test for anemia)</li>
 						<li>Hearing</li>
 					</ul>
-					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/> </p> -->
+					<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="../images/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="../images/PDF_file_icon.svg" width="20" height="15" style="margin-top: -5px;" alt="PDF"/> </p> -->
 					<p>Your doctor may also ask about the following issues:</p>
 					<ul>
 						<li>Diet</li>
@@ -239,7 +240,7 @@
 						<li>HIV screening for adolescents ages 15-18</li>
 						<li>Physical exam </li>
 					</ul>
-					<p>Download the Children under 18 Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
+					<p>Download the Children under 18 Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website<span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></a></p>
 					<p>Your doctor may also ask about the following issues:</p>
 					<ul>
 						<li>Nutrition</li>
@@ -291,7 +292,7 @@
 					</ul>
 					<p>If your doctor doesn't bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
 					<h3 class="titleHeader_20_0_10_0">Vaccines</h3>
-					<p>Download the Adult Vaccine Schedule from:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC.gov.</a></p>
+					<p>Download the Adult Vaccine Schedule from:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC.gov.<span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></a></p>
 					<ul>
 						<li>Tetanus, Diphtheria, pertussis (whooping cough) vaccine (Tdap vaccine once, 10 years after your last tetanus followed by Td every 10 years) </li>
 						<li>Influenza (Flu) vaccine (annually)</li>
@@ -347,8 +348,11 @@
   }
   .pcg-doc-image{
 	display: inline-block!important;
+	}
+	.pcg-sub-header-1{
+	margin-left: 0px;
   }
-  .pcg-navbar li.noContent{
+  .pcg-navbar li.noContent1, .pcg-navbar li.noContent2{
 	display: none;
   }
   .pcg-navbar li.content{
@@ -356,7 +360,7 @@
 	text-align: center;
 	background-color: darkgray!important;
 	border-top-left-radius: 0px!important;
-    border-top-right-radius: 0px!important;
+  border-top-right-radius: 0px!important;
 	border-right: none!important;
 	border-left: none!important;
 	border-top: none!important;
@@ -380,6 +384,9 @@
 .pcg-content-header{
   background-color: #e9f7fe;
   border:1px solid #d3d3d3;
+}
+.pcg-sub-header-1{
+	margin-left: -40px;
 }
 .pcg-navbar-container{
   margin-top: 20px;
@@ -405,11 +412,17 @@
 .pcg-navbar #third-content{
   border-right: 5px solid darkgray;
 }
-.pcg-navbar li.noContent{
+.pcg-navbar li.noContent1{
   padding:10px;
   background-color: white;
   border-bottom: 2px solid darkgray;
   margin-right: -6px;
+}
+.pcg-navbar li.noContent2{
+  padding:10px;
+  background-color: white;
+  border-bottom: 2px solid darkgray;
+  margin-left: 0px;
 }
 .pcg-navbar li.active{
   background-color: white!important;
@@ -423,15 +436,22 @@
   color: black;
   font-weight: bold;
 }
-#pcg-navigator span{
+#resources-navigator span, #hcs-navigator span, #pcg-navigator span{
   background: none;
+}
+#resources-navigator p, #hcs-navigator p{
+	position: absolute;
+  left: 180px;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 15px solid #03a9f4; /* #008fda; */
 }
 #pcg-navigator p{
   position: absolute;
   left: 180px;
   border-top: 38px solid transparent;
   border-bottom: 30px solid transparent;
-  border-left: 15px solid #008fda;
+  border-left: 15px solid #03a9f4; /* #008fda; */
 }
 ul{color: #666;}
 ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
