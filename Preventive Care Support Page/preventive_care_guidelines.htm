@@ -71,7 +71,8 @@
             <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
               #if($wo.feature.wellness)
               	<ul class="account-navigation">
-									<li><a href="/members/secure/wellness/index.htm">
+									<li id="resources-navigator"><a href="/members/secure/wellness/index.htm">
+										<p class="resources-navigator"></p>
 										#if($wo.defaultPolicy.isPopHealth)
 										Resources
 										#else
@@ -89,8 +90,7 @@
               				<li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
               			#end
               			#if($wo.program.onlineHealthPortal || $wo.program.alere ||  $wo.defaultPolicy.isState)
-              				<li id="resources-navigator" class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
-												<p></p>
+              				<li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
 												<ul class="resources-subnav hide subnav">
               						<li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
               						#if($wo.thisMember.age > 17 && $wo.program.healthCoach)
@@ -104,9 +104,9 @@
               			#end
               		#end
               		#if($wo.defaultPolicy.isPopHealth)
-              				<li id="hcs-navigator"><p></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+              				<li id="hcs-navigator"><p class="hcs-navigator"></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
-              		<li id="pcg-navigator"><p></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+              		<li id="pcg-navigator"><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)
               			#if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
               				<li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
@@ -173,8 +173,7 @@
 					<li class="noContent1"><span style="visibility:hidden">no</span></li>
 					<li id="first-content" class="content active" target="new">Babies and Toddlers (0-35 months)</li>
 					<li id="second-content" class="content" target="children">Children and Adolescents (3-18 years)</li>
-					<li id="third-content" class="content" target="adult">Adults (19+ years)</li>
-					<li class="noContent2"><span style="visibility:hidden">no</span></li>
+					<li id="third-content" class="content" target="adult">Adults (19+ years)<span class="emptyLi">&nbsp;</span></li>
 				</ul>
 			</div>
 			<br />
@@ -352,7 +351,7 @@
 	.pcg-sub-header-1{
 	margin-left: 0px;
   }
-  .pcg-navbar li.noContent1, .pcg-navbar li.noContent2{
+  .pcg-navbar li.noContent1, .pcg-navbar .emptyLi{
 	display: none;
   }
   .pcg-navbar li.content{
@@ -386,6 +385,7 @@
   border:1px solid #d3d3d3;
 }
 .pcg-sub-header-1{
+	padding-top: 2px;
 	margin-left: -40px;
 }
 .pcg-navbar-container{
@@ -409,20 +409,22 @@
   border-bottom: 2px solid darkgray;
   margin-right: -6px;
 }
-.pcg-navbar #third-content{
+/* .pcg-navbar #third-content{
   border-right: 5px solid darkgray;
-}
+} */
 .pcg-navbar li.noContent1{
   padding:10px;
   background-color: white;
   border-bottom: 2px solid darkgray;
   margin-right: -6px;
 }
-.pcg-navbar li.noContent2{
-  padding:10px;
-  background-color: white;
-  border-bottom: 2px solid darkgray;
-  margin-left: 0px;
+.pcg-navbar .emptyLi{
+	position: absolute;
+	width: 40px;
+	border-bottom: 2px solid darkgray;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 .pcg-navbar li.active{
   background-color: white!important;
@@ -436,24 +438,25 @@
   color: black;
   font-weight: bold;
 }
-#resources-navigator span, #hcs-navigator span, #pcg-navigator span{
+#resources-navigator > span, #hcs-navigator > span, #pcg-navigator > span{
   background: none;
 }
-#resources-navigator p, #hcs-navigator p{
+ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
 	position: absolute;
   left: 180px;
   border-top: 22px solid transparent;
   border-bottom: 22px solid transparent;
-  border-left: 15px solid #03a9f4; /* #008fda; */
+  border-left: 15px solid #008fda; 
 }
-#pcg-navigator p{
+ul.account-navigation .activeNav p.pcg-navigator{
   position: absolute;
   left: 180px;
   border-top: 38px solid transparent;
   border-bottom: 30px solid transparent;
-  border-left: 15px solid #03a9f4; /* #008fda; */
+  border-left: 15px solid #008fda; 
 }
 ul{color: #666;}
+ul.account-navigation li.activeNav a { background-color: #008fda; }
 ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
 .activeNav {
 background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px;
