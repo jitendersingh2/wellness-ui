@@ -69,126 +69,124 @@
         }
       </style>
     </head>
-    <div style="background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) 0px 0px no-repeat;">
-        <h1 id="main-content" tabindex="-1" class="pageHeader_27">
-            #if($wo.defaultPolicy.isPopHealth)
-            Get Healthy
-            #else
-            Wellness
-            #end
-        </h1>
+    <h1 id="main-content" tabindex="-1" class="pageHeader_27">
+        #if($wo.defaultPolicy.isPopHealth)
+        Get Healthy
+        #else
+        Wellness
+        #end
+    </h1>
 
-        <div class="pageContent">
-            #parse("members/public/outage-message-body.htm")
+    <div class="pageContent">
+        #parse("members/public/outage-message-body.htm")
 
-            <div id="mainContentContainer" style="float:right;width:100%;">
-                <!--  main content area  -->
-                #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
-                <div id="healthPartnership">
-                    #if($wo.defaultPolicy.isPopHealth)
-                    <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
-                    
-                    <div class="header-btn">
-                        <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
-                    </div>
-
-                    <p><strong>Take a look below at the various resources available to help you.</strong></p>
-                    #else
-                    <p style="margin:5px 0 20px;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our <strong>Healthy Outcomes</strong> programs encourage our members to get healthy, help members understand and manage chronic health conditions, and promote preventive health and wellness activities.</p>
-                    
-                    <a href="#" id="sso-link-visit-wellness" data-vendor="optum" style="text-decoration: none;">
-                        <input name="getStartedBtn" class="buttonblue" style-"margin-bottom:10px;"="" type="button" value="Visit Wellness">
-                    </a>
-                    #end
-                </div>
-                #elseif(($wo.defaultPolicy.isGroup && (!$wo.program.alere || $wo.program.incentFulfillment == 'G')) || ($wo.program.onlineHealthPortal && $wo.thisMember.age < 18))
-                <div id="healthPartnership" style="background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 360px 0 10px;height:154px;background-position:top right;background-color: #e9f7fe;border:1px solid #d3d3d3">
-                    <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p>
-                </div>
-                #end
-
-                <div class="clear"></div>
-
-                #if($wo.program.onlineHealthPortal && $wo.thisMember.age >17)
-                <div id="HealthyOutcomes" class="clear">
-                    <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon">
-                        <a href="#" id="sso-link-personal-health-record" data-vendor="optum" data-deeplink="personalhealthrecord">Personal Health Record</a>
-                        <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-                    </h3>
-                    <p><strong>Having trouble keeping all your health records and doctor contact information handy?</strong></p>
-                    <p>Keep everything you need in one secure, convenient place - track your health history and measurements, exams, appointments and more. You can even get medication alerts. When you're ready, print your information and share it with your health care provider to help you remember everything you need to discuss.</p>
-                </div>
-                <hr class="topMargin20" />
-                #end
-
-                <hr class="topMargin20" />
-
-                <h3 class="titleHeader_20_0_10_0">Wellness Resources</h3>
-                <p>Try these online resources to find new information and tools for taking care of your health.</p>
-
-                #if(($wo.program.alere || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
-                <div id="HealthyWiseKnowledge" class="clear">
-                    <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" class="resources-link" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p></h3>
-                    <p>Our online health encyclopedia lets you look up a wide variety of symptoms, health conditions, medical tests, treatments and medications.</p>
-                </div>
-                #end
-
-                <!--
-                <p class="titleLinkicon"> <a href="http://www.getgoingnc.com" target="_blank">Get Going NC!</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-                <p>Follow this blog to find a sport, activity or event that makes you want to get moving!</p>
-                -->
-                
+        <div id="mainContentContainer" style="float:right;width:100%;">
+            <!--  main content area  -->
+            #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
+            <div id="healthPartnership">
                 #if($wo.defaultPolicy.isPopHealth)
-                <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm" class="resources-link">Preventive Care</a></p>
-                <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="#" class="resources-link">Learn more</a> about preventive health guidelines for family members of all ages.</p>
-                #end
+                <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
                 
-                <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" class="resources-link" target="_blank">Live Happier &amp; Healthier</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-                <p>Blue Cross NC's destination for fitness, recipes, and lifestyle tips.</p>
-            
-                <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm" class="resources-link">Member Discounts: Blue 365 Program</a></p>
-                <p>Find great member discounts on fitness and health tools.</p>
+                <div class="header-btn">
+                    <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
+                </div>
 
-                <hr class="topMargin20" />
-            </div>  <!-- main container -->
-            <br clear="all"/>
-            <div class="footnote vmargin25">
-                <p class="titleLinkicon">Your privacy is important to us. View our <a href="/members/public/privacy/index.htm" class="resources-link">Program disclaimers and privacy policy</a> for more information.</p>
-
-                #if($wo.program.alere && $wo.thisMember.age > 17)
-                <p><sup style="font-size:.9em;">1</sup>Blue  Cross and Blue Shield of North Carolina (BCBSNC) has contracted with Optum to bring you this service. The information contained within is intended as a resource and is not intended to provide medical advice.</p>
-                #elseif($wo.defaultPolicy.isPopHealth && $wo.thisMember.age > 17)
-                <p><sup style="font-size:.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
+                <p><strong>Take a look below at the various resources available to help you.</strong></p>
+                #else
+                <p style="margin:5px 0 20px;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our <strong>Healthy Outcomes</strong> programs encourage our members to get healthy, help members understand and manage chronic health conditions, and promote preventive health and wellness activities.</p>
+                
+                <a href="#" id="sso-link-visit-wellness" data-vendor="optum" style="text-decoration: none;">
+                    <input name="getStartedBtn" class="buttonblue" style-"margin-bottom:10px;"="" type="button" value="Visit Wellness">
+                </a>
                 #end
-                <p>Eligibility for the Healthy Outcomes wellness program is dependent on several factors, including product enrollment.  Please see program terms and conditions for details.</p>
-                <p>BCBSNC offers Healthy Outcomes programs as a convenience to aid you in improving your health; results are not guaranteed. BCBSNC contracts with Optum, an independent third party vendor, for the provision of certain aspects of Healthy Outcomes programs and is not liable in any way for goods or services received from Optum. Optum does not provide Blue Cross or Blue Shield products or services. BCBSNC reserves the right to discontinue or change Healthy Outcomes programs at any time. The programs are educational in nature, and are intended to help you make informed decisions about your health, and to help you comply with your doctor's plan of care. Decisions regarding your care should be made with the advice of your doctor.</p>
-                <p>An independent licensee of the Blue Cross and Blue Shield Association. &reg; Mark of the Blue Cross and Blue Shield Association. &reg;<sup style="font-size:.9em;">1</sup> is a federally registered trademark of Healthwise, Inc. </p>
             </div>
+            #elseif(($wo.defaultPolicy.isGroup && (!$wo.program.alere || $wo.program.incentFulfillment == 'G')) || ($wo.program.onlineHealthPortal && $wo.thisMember.age < 18))
+            <div id="healthPartnership" style="background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 360px 0 10px;height:154px;background-position:top right;background-color: #e9f7fe;border:1px solid #d3d3d3">
+                <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p>
+            </div>
+            #end
 
-            <div id="optumRedirect">
-                <a id="wellness" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https://${alereEnv}/portal/server.pt');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')">
-                <a id="asthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="childasthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="copd" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_copd');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="chf" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_chf');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="cad" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_cad');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="diabetes" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_diabetes');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="teamup" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_working_with_doc');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <a id="challengedashboard" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dchallenge');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-                <script>
-                    var querystring = window.location.search.substring(1).split("&");
-                    for ( var x = 0; x < querystring.length; x++ ) {
-                        var value = querystring[x].split("=");
-                        if ( value[0].indexOf("optumLink")>-1 ) {
-                            selector = '#optumRedirect #' + value[1].toLowerCase();
-                            $(selector).click();
-                        }
+            <div class="clear"></div>
+
+            #if($wo.program.onlineHealthPortal && $wo.thisMember.age >17)
+            <div id="HealthyOutcomes" class="clear">
+                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon">
+                    <a href="#" id="sso-link-personal-health-record" data-vendor="optum" data-deeplink="personalhealthrecord">Personal Health Record</a>
+                    <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+                </h3>
+                <p><strong>Having trouble keeping all your health records and doctor contact information handy?</strong></p>
+                <p>Keep everything you need in one secure, convenient place - track your health history and measurements, exams, appointments and more. You can even get medication alerts. When you're ready, print your information and share it with your health care provider to help you remember everything you need to discuss.</p>
+            </div>
+            <hr class="topMargin20" />
+            #end
+
+            <hr class="topMargin20" />
+
+            <h3 class="titleHeader_20_0_10_0">Wellness Resources</h3>
+            <p>Try these online resources to find new information and tools for taking care of your health.</p>
+
+            #if(($wo.program.alere || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
+            <div id="HealthyWiseKnowledge" class="clear">
+                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" class="resources-link" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p></h3>
+                <p>Our online health encyclopedia lets you look up a wide variety of symptoms, health conditions, medical tests, treatments and medications.</p>
+            </div>
+            #end
+
+            <!--
+            <p class="titleLinkicon"> <a href="http://www.getgoingnc.com" target="_blank">Get Going NC!</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+            <p>Follow this blog to find a sport, activity or event that makes you want to get moving!</p>
+            -->
+            
+            #if($wo.defaultPolicy.isPopHealth)
+            <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm" class="resources-link">Preventive Care</a></p>
+            <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="#" class="resources-link">Learn more</a> about preventive health guidelines for family members of all ages.</p>
+            #end
+            
+            <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" class="resources-link" target="_blank">Live Happier &amp; Healthier</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+            <p>Blue Cross NC's destination for fitness, recipes, and lifestyle tips.</p>
+        
+            <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm" class="resources-link">Member Discounts: Blue 365 Program</a></p>
+            <p>Find great member discounts on fitness and health tools.</p>
+
+            <hr class="topMargin20" />
+        </div>  <!-- main container -->
+        <br clear="all"/>
+        <div class="footnote vmargin25">
+            <p class="titleLinkicon">Your privacy is important to us. View our <a href="/members/public/privacy/index.htm" class="resources-link">Program disclaimers and privacy policy</a> for more information.</p>
+
+            #if($wo.program.alere && $wo.thisMember.age > 17)
+            <p><sup style="font-size:.9em;">1</sup>Blue  Cross and Blue Shield of North Carolina (BCBSNC) has contracted with Optum to bring you this service. The information contained within is intended as a resource and is not intended to provide medical advice.</p>
+            #elseif($wo.defaultPolicy.isPopHealth && $wo.thisMember.age > 17)
+            <p><sup style="font-size:.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
+            #end
+            <p>Eligibility for the Healthy Outcomes wellness program is dependent on several factors, including product enrollment.  Please see program terms and conditions for details.</p>
+            <p>BCBSNC offers Healthy Outcomes programs as a convenience to aid you in improving your health; results are not guaranteed. BCBSNC contracts with Optum, an independent third party vendor, for the provision of certain aspects of Healthy Outcomes programs and is not liable in any way for goods or services received from Optum. Optum does not provide Blue Cross or Blue Shield products or services. BCBSNC reserves the right to discontinue or change Healthy Outcomes programs at any time. The programs are educational in nature, and are intended to help you make informed decisions about your health, and to help you comply with your doctor's plan of care. Decisions regarding your care should be made with the advice of your doctor.</p>
+            <p>An independent licensee of the Blue Cross and Blue Shield Association. &reg; Mark of the Blue Cross and Blue Shield Association. &reg;<sup style="font-size:.9em;">1</sup> is a federally registered trademark of Healthwise, Inc. </p>
+        </div>
+
+        <div id="optumRedirect">
+            <a id="wellness" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https://${alereEnv}/portal/server.pt');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')">
+            <a id="asthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="childasthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="copd" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_copd');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="chf" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_chf');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="cad" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_cad');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="diabetes" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_diabetes');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="teamup" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_working_with_doc');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <a id="challengedashboard" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dchallenge');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+            <script>
+                var querystring = window.location.search.substring(1).split("&");
+                for ( var x = 0; x < querystring.length; x++ ) {
+                    var value = querystring[x].split("=");
+                    if ( value[0].indexOf("optumLink")>-1 ) {
+                        selector = '#optumRedirect #' + value[1].toLowerCase();
+                        $(selector).click();
                     }
-                </script>
-            </div>
+                }
+            </script>
+        </div>
 
-        </div>  <!-- end pageContent -->
-    </div>
+    </div>  <!-- end pageContent -->
 
 <script src="/assets/members/public/data-capture/blueconnect-data-capture-jquery.min.js"></script>
 <script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>

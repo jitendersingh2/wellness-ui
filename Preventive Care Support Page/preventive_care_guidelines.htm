@@ -71,7 +71,7 @@
             <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
               #if($wo.feature.wellness)
               	<ul class="account-navigation" style="background:none;">
-									<li id="resources-navigator"><p class="resources-navigator"></p><a href="/members/secure/wellness/index.htm">
+									<li id="resources-navigator"><a href="/members/secure/wellness/index.htm">
 										#if($wo.defaultPolicy.isPopHealth)
 										Resources
 										#else
@@ -103,7 +103,7 @@
               			#end
               		#end
               		#if($wo.defaultPolicy.isPopHealth)
-              				<li id="hcs-navigator"><p class="hcs-navigator"></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+              				<li id="hcs-navigator"><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
               		<li id="pcg-navigator"><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)

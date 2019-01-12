@@ -1,0 +1,61 @@
+<style>
+    ul.account-navigation li.activeNav a { background-color: #008fda; }
+    ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
+    .activeNav, #resources-navigator span, #hcs-navigator span {
+        background: none!important;
+    }
+    ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
+        position: absolute;
+        left: 180px;
+        border-top: 22px solid transparent;
+        border-bottom: 22px solid transparent;
+        border-left: 15px solid #008fda; 
+    }
+</style>
+#if($wo.feature.wellness)
+	<ul id="navigation" class="account-navigation">
+		<li id="resources-navigator"><p class="resources-navigator"></p><a href="/members/secure/wellness/index.htm">
+			#if($wo.defaultPolicy.isPopHealth)
+			Resources
+			#else
+			Overview
+			#end
+		</a></li>
+		#if(!$wo.defaultPolicy.isState)
+			#if($wo.feature.healthAssessment)
+				<li><a href="/members/secure/wellness/healthy_assessment.htm">Wellbeing Assessment</a></li>
+			#end
+			#if($wo.feature.healthLineBlue)
+				<li><a href="/members/secure/wellness/health_line_blue.htm">Health Line Blue</a></li>
+			#end
+			#if($wo.feature.alere && !$wo.feature.isBBT)
+				<li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
+			#end
+			#if($wo.program.onlineHealthPortal || $wo.program.alere)
+				<li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
+					<ul class="resources-subnav hide subnav">
+						<li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
+						#if($wo.thisMember.age > 17 && $wo.program.healthCoach)
+							<li><a href="/members/secure/wellness/resources/wellness_coaching.htm">Lifestyle Coaching </a></li>
+						#end
+						#if($wo.program.nutritionalCounseling)
+							<li><a href="/members/secure/wellness/resources/nutritional_counseling.htm">Nutritional Counseling</a></li>
+						#end
+					</ul>
+				</li>
+			#end
+		#end
+		#if($wo.defaultPolicy.isPopHealth)
+				<li id="hcs-navigator"><p class="hcs-navigator"></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+		#end
+		<li><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+		#if(!$wo.defaultPolicy.isState)
+			#if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
+				<li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
+			#end
+			#if($wo.thisMember.age > 17 && $wo.program.maternity)
+				<li><a href="/members/secure/wellness/maternity.htm">Maternity Resources</a></li>
+			#end
+		#end
+	</ul>
+#end
