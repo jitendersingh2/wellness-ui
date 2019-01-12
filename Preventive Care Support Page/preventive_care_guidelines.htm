@@ -70,9 +70,8 @@
 
             <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
               #if($wo.feature.wellness)
-              	<ul class="account-navigation">
-									<li id="resources-navigator"><a href="/members/secure/wellness/index.htm">
-										<p class="resources-navigator"></p>
+              	<ul class="account-navigation" style="background:none;">
+									<li id="resources-navigator"><p class="resources-navigator"></p><a href="/members/secure/wellness/index.htm">
 										#if($wo.defaultPolicy.isPopHealth)
 										Resources
 										#else
@@ -261,10 +260,10 @@
 			<div id="adult" class="pcg-navbar-content hidden">
 				<div class="col-xs-12 col-md-8">
 					<h3 class="titleHeader_20_0_10_0">Adults (19+ years)</h3>
-					<p>Adults ages 19+ should visit their doctor for a routine check-up every one to three years and after 65+ annually.</p>
+					<p>Adults ages 19 and older should visit their doctor for a routine check-up every one to three years, and anually if older than 50.</p>
 					<p style="font-weight:bold;">Women and Men:</p>
 					<ul>
-						<li>Routine screening and testing</li>
+						<li>Routine screenings</li>
 						<li>Height and weight</li>
 						<li>Blood pressure </li>
 						<li>Depression screening</li>
@@ -291,7 +290,7 @@
 					</ul>
 					<p>If your doctor doesn't bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
 					<h3 class="titleHeader_20_0_10_0">Vaccines</h3>
-					<p>Download the Adult Vaccine Schedule from:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC.gov.<span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></a></p>
+					<p>Download the Adult Vaccine Schedule from:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank"><strong>CDC.gov.</strong><span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></a></p>
 					<ul>
 						<li>Tetanus, Diphtheria, pertussis (whooping cough) vaccine (Tdap vaccine once, 10 years after your last tetanus followed by Td every 10 years) </li>
 						<li>Influenza (Flu) vaccine (annually)</li>
@@ -306,7 +305,7 @@
 
 					<div class="clear"></div>
 					<div  class="footnote vmargin25 col-md-12">
-						<p>1. (Cologuard&reg; FIFDNA test is only covered at the out of network benefits level, which in most cases will be more expensive for the Blue Cross NC member than using an in network provider. The out of network benefits level applies to Cologuard &reg; because the provider of Cologuard &reg; is not a Blue Cross NC member than using an in network provider. Other colon cancer screening tests that can be provided in network are fecal blood test (gFOBT), FIT (not DNA), sigmoidoscopy and colonoscopy).</p>
+						<p>1. (Cologuard&reg; FIT-DNA test is only covered at the out of network benefits level, which in most cases will be more expensive for the Blue Cross NC member than using an in network provider. The out of network benefits level applies to Cologuard &reg; because the provider of Cologuard &reg; is not a Blue Cross NC member than using an in network provider. Other colon cancer screening tests that can be provided in network are fecal blood test (gFOBT), FIT (not DNA), sigmoidoscopy and colonoscopy).</p>
 						<p>2. Refer to the BCBSNC Medical Policy on Bone Mineral Density Studies</p>
 						<p>3. The shingles vaccine is covered in accordance with the  Food and Drug Administration (FDA) guidelines.&nbsp; </p>
 						<p>BCBSNC provides these guidelines to help you understand how to best manage your health.</p>
@@ -459,12 +458,12 @@ ul{color: #666;}
 ul.account-navigation li.activeNav a { background-color: #008fda; }
 ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
 .activeNav {
-background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px;
+/* background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px; */
 width:155px;
 margin:0px !IMPORTANT;
 }
 .activeNav span {
-background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent;
+/* background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent; */
 height: 100%;
 float:left;
 position: absolute;
