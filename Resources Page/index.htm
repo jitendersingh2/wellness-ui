@@ -5,7 +5,7 @@
 #set($testing = true)
 #set($wellnessPage = true)
 
-#parse("members/secure/header.htm")
+#parse("members/secure/header-responsive-classic.htm")
 #if(!$wo.feature.wellness)
     #parse( "members/secure/no-access.htm" )
 #end
@@ -192,4 +192,4 @@
 <script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>
 
 #parse("members/secure/navigation.htm")
-#parse("members/secure/footer.htm")
+#parse("members/secure/footer-responsive-classic.htm")

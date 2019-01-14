@@ -4,7 +4,7 @@
 #set($onload = "wellness")
 #set($testing = true)
 
-#parse("members/secure/header.htm")
+#parse("members/secure/header-responsive-classic.htm")
 
 #if(!$wo.defaultPolicy.isState)
   #parse( "members/secure/no-access.htm" )
@@ -116,4 +116,4 @@
   </div>  <!-- end pageContent -->
 
 #parse("members/secure/navigation.htm")
-#parse("members/secure/footer.htm")
+#parse("members/secure/footer-responsive-classic.htm")
