@@ -124,7 +124,7 @@
 
   	<div class="">
 		<div class="col-md-12 pcg-header-bg">
-			<h1 style="margin-top: 40px;margin-bottom: 50px;">Preventive Care Guidelines</h1>
+			<h1 class="pcg-header-title">Preventive Care Guidelines</h1>
 			<div class="row pcg-content-header">
 				<div class="col-xs-12 col-md-9">
 					<h3 class="titleHeaderVisitingtheDoctor" style="font-weight: bold;"><img class="pcg-doc-image" src="/assets/members/public/images/wellness/doctor-solid.png" height="35" width="35" alt="Doctor"/> Visiting the Doctor</h3>
@@ -175,9 +175,8 @@
 					<li id="third-content" class="content" target="adult">Adults (19+ years)<span class="emptyLi">&nbsp;</span></li>
 				</ul>
 			</div>
-			<br />
 			<!-- 0-35 months -->
-			<div id="new" class="row pcg-navbar-content nav-content-show">
+			<div id="new" class="pcg-navbar-content nav-content-show" style="margin-top: -10px;">
 				<div class="col-xs-12 col-md-8">
 					<h3>Babies and Toddlers (0-35 months)</h3>
 					<p>Your baby should visit the doctor for regular check-ups at the following ages:</p>
@@ -223,7 +222,7 @@
 				</div>
 			</div>
 			<!-- 3-18 years -->
-			<div id="children" class="row pcg-navbar-content hidden">
+			<div id="children" class="pcg-navbar-content hidden" style="margin-top: -10px;">
 				<div class="col-xs-12 col-md-8">
 					<h3 class="titleHeader_20_0_10_0">Children and Adolescents (3 to 18 years)</h3>
 					<p>Children ages 3 to 18 should visit their pediatrician for a routine check-up each year. Routine screening and tests include:</p>
@@ -257,7 +256,7 @@
 				</div>
 			</div>
 			<!-- 19+ years -->
-			<div id="adult" class="pcg-navbar-content hidden">
+			<div id="adult" class="pcg-navbar-content hidden" style="margin-top: -10px;">
 				<div class="col-xs-12 col-md-8">
 					<h3 class="titleHeader_20_0_10_0">Adults (19+ years)</h3>
 					<p>Adults ages 19 and older should visit their doctor for a routine check-up every one to three years, and anually if older than 50.</p>
@@ -340,9 +339,12 @@
 /* .pcg-header-img{
   display: none;	
 } */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	.pcg-header-bg{
-	background: none;
+	background: none!important;
+	}
+	.pcg-header-title{
+	margin-bottom: 20px!important;
 	}
   .pcg-header-img{
 	display: none;	
@@ -379,6 +381,10 @@
 .pcg-header-bg{
 	background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) -100px -10px no-repeat;
 	background-size: 115% auto;
+}
+.pcg-header-title{
+	margin-top: 40px;
+	margin-bottom: 50px;
 }
 .pcg-doc-image{
   display: none;
