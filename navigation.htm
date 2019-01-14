@@ -1,15 +1,28 @@
 <style>
-    ul.account-navigation li.activeNav a { background-color: #008fda; }
-    ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
-    .activeNav, #resources-navigator span, #hcs-navigator span {
-        background: none!important;
+    ul.account-navigation li.activeNav { background-color: #008fda!important; }
+    ul.account-navigation li.activeNav:hover { background-color: #008fda!important; }
+    body, .activeNav, #resources-navigator span, #hcs-navigator span {
+        background: none;
+    }
+    ul.account-navigation .activeNav p.hcs-navigator{
+        top: 52px!important;
+    }
+    ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
+        display: none;
     }
     ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
+        display: inline-block;
         position: absolute;
-        left: 180px;
-        border-top: 22px solid transparent;
-        border-bottom: 22px solid transparent;
-        border-left: 15px solid #008fda; 
+        top: 9px;
+        left: 179px;
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+        border-left: 15px solid #008fda;
+    }
+	@media screen and (max-width: 600px) {
+        ul.account-navigation{
+			display: none;
+		}
     }
 </style>
 #if($wo.feature.wellness)

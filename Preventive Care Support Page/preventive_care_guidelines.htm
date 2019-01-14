@@ -71,7 +71,7 @@
             <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
               #if($wo.feature.wellness)
               	<ul class="account-navigation" style="background:none;">
-									<li id="resources-navigator"><a href="/members/secure/wellness/index.htm">
+									<li><a href="/members/secure/wellness/index.htm">
 										#if($wo.defaultPolicy.isPopHealth)
 										Resources
 										#else
@@ -103,7 +103,7 @@
               			#end
               		#end
               		#if($wo.defaultPolicy.isPopHealth)
-              				<li id="hcs-navigator"><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+              				<li><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
               		<li id="pcg-navigator"><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)
@@ -123,7 +123,7 @@
 	<!-- <h1>Preventive Care Guidelines</h1> -->
 
   	<div class="">
-		<div class="col-md-12" style="background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) 0px 0px no-repeat;">
+		<div class="col-md-12 pcg-header-bg">
 			<h1 style="margin-top: 40px;margin-bottom: 50px;">Preventive Care Guidelines</h1>
 			<div class="row pcg-content-header">
 				<div class="col-xs-12 col-md-9">
@@ -341,6 +341,9 @@
   display: none;	
 } */
 @media screen and (max-width: 600px) {
+	.pcg-header-bg{
+	background: none;
+	}
   .pcg-header-img{
 	display: none;	
   }
@@ -372,6 +375,10 @@
   .pcg-nav-content-img{
 	display: none;
   }
+}
+.pcg-header-bg{
+	background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) -100px -10px no-repeat;
+	background-size: 115% auto;
 }
 .pcg-doc-image{
   display: none;
@@ -437,15 +444,8 @@
   color: black;
   font-weight: bold;
 }
-#resources-navigator > span, #hcs-navigator > span, #pcg-navigator > span{
+#pcg-navigator > span{
   background: none;
-}
-ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
-	position: absolute;
-  left: 180px;
-  border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent;
-  border-left: 15px solid #008fda; 
 }
 ul.account-navigation .activeNav p.pcg-navigator{
   position: absolute;
