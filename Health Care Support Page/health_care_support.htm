@@ -1,17 +1,68 @@
-#set($header = "secure")
 #set($navigation = 5 )
-#set($footer = "secure")
 #set($onload = "wellness")
-#set($testing = true)
 
-#parse("members/secure/header.htm")
+#parse("members/webEnv.htm")
+#parse("members/secure/velocityData/velocityjson.vm")
+#parse("members/secure/velocityData/data.vm")
+#parse("members/secure/header-logic.htm")
 
-#if(!$wo.defaultPolicy.isState)
-  #parse( "members/secure/no-access.htm" )
+#if(!$wo.feature.wellness)
+	#parse ("members/secure/no-access.htm")
 #end
 
-  <head>
-    <style>
+<!doctype html>
+<html lang="en-us">
+<head>
+  <title>Blue Connect - Blue Cross and Blue Shield of North Carolina</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/global/css/classic.css">
+  <link rel="stylesheet" href="/assets/members/public/account/css/account.css">
+	
+	<script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
+	<script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/angular-tabby/1.0.0/tabby.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/modal/1.0.0/directive.modal.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/accessibility/1.0.0/accessibility.js"></script>
+	<script src="/assets/global/js/libs/underscore/1.4.2/underscore-min.js"></script>
+	<script src="/assets/global/js/bcbsnc.js"></script>
+	<script src="/members/secure/bcbsnc.js"></script>
+	<script src="/assets/members/public/scripts/member-secure.js"></script>
+	<script src="/assets/common/scripts/jquery.url.packed.js"></script>
+	<script src="/assets/global/js/libs/jquery/plugins/selectToUISlider.jQuery.js"></script>
+	<script src="/assets/common/scripts/jquery.accordionFAQ508.js"></script>
+	<script src="/assets/common/scripts/jquery.cookie.pack.js"></script>
+	<script src="/assets/common/scripts/jquery.ajaxmanager.js" ></script>
+	<script src="/assets/members/public/scripts/password_strength_plugin.js"></script>
+	<script src="/assets/common/scripts/jquery.printElement.js"></script>
+	<script src="/assets/common/scripts/pop-up-windows.js"></script>
+
+	<!-- Universal JS/CSS Injector -->
+	<script src="/assets/global/js/swag.js"></script>
+
+	<script src="/assets/members/public/scripts/member.js"></script>
+	<script src="/assets/members/public/scripts/ms-reg.js"></script>
+	<script src="/assets/members/public/scripts/member-benefits.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements, media queries, and CSS3 selectors -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="/assets/global/js/libs/html5shiv/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/assets/global/js/libs/respond/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Analytics -->
+   <script src="//assets.adobedtm.com/b92b24179510af4995a1d72353a153eb7c4088bd/satelliteLib-c18ca7f8fb667eb793fda628c520dd7458b3ca87.js"></script>
+
+   <style>
+      .pcg-header-bg{
+        background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) -100px -10px no-repeat;
+        background-size: 115% auto;
+      }
+      .pcg-header-title{
+        margin-top: 40px;
+        margin-bottom: 50px;
+      }
       .content-header {
         display: inline-flex;
         background-color:#e9f7fe;
@@ -47,9 +98,99 @@
         color:#0E92C7;
         font-size: 16px;
       }
+      ul.account-navigation .activeNav p.hcs-navigator{
+        top: 52px!important;
+      }
+      ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
+        display: none;
+      }
+      ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
+        display: inline-block;
+        position: absolute;
+        top: 9px;
+        left: 179px;
+        border-top: 21px solid transparent;
+        border-bottom: 21px solid transparent;
+        border-left: 15px solid #008fda;
+      }
+      ul.account-navigation .activeNav p.pcg-navigator{
+        position: absolute;
+        left: 180px;
+        border-top: 38px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 15px solid #008fda; 
+      }
+      ul{color: #666;}
+      ul.account-navigation li.activeNav a { background-color: #008fda; }
+      ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
+      .activeNav {
+      /* background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px; */
+        width:155px;
+        margin:0px !IMPORTANT;
+      }
+      .activeNav span {
+      /* background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent; */
+        height: 100%;
+        float:left;
+        position: absolute;
+        padding: 12px 5px 12px 0;
+        margin:3px 0 0 181px ! important;
+      }
+      span.iconLink { display: inline-block; }
+      span.iconPDF { display: inline-block; margin: 0 5px; }
+      .iconLink { background: url('/assets/members/public/images/member-spritemap.png'); background-position: -588px -353px; height:14px; width:16px; text-indent: 135%; overflow: hidden; white-space: nowrap; margin:0px;}
+      .lactation-container ul.account-navigation,
+      .lactation-container ul.account-navigation li,
+      .lactation-container ul.account-navigation a {
+        width: 180px;
+      }
+      .lactation-container .lac-right-content {
+        width:78%;
+      }
+      .lactation-container .lac-left-content {
+        width: 16%;
+        vertical-align: top;
+        margin: 25px 20px 10px 0px;
+      }
+      .lactation-container .inline-container {
+        display: inline-block;
+      }
+      .buttonblue { -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; height:30px; color:#fff; padding:5px 15px 7px 15px; font-size:14px; background: #239ad8 url('https://wwwps.bcbsnc.com/assets/members/public/images/member-spritemap-bgs.png') 0px -85px; border:1px solid #239ad8; }
+      .buttonblue:hover { background-position: 0px -54px; border:1px solid #0074b0; cursor:pointer;}
+      .vmargin25 { margin-top:15px; }
+      .footnote  { font-size: .8em; background-color:#f3f3f3; }
+      .footnote sup { font-size: .7em; color:#666; }
+      .footnote p, .footnote ul li{ font-size: 10px; }
+      #wellnesshealthassessmentContainerGray {background: url("https://wwwps.bcbsnc.com/assets/members/public/images/health_assessment.jpg") no-repeat top left;background-color:#F3F3F3;padding:10px 0px 0px 200px;}
+      .resources-subnav-removehide{display: block!important;}
+      @media screen and (max-width: 991px) {
+        .lactation-container .lac-right-content {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        .lactation-container ul.account-navigation,
+        .lactation-container ul.account-navigation li,
+        .lactation-container ul.account-navigation a {
+          width: 161px;
+        }
+      }
+      @media screen and (max-width: 766px) {
+      #healthPartnership, #wellnesshealthassessmentContainerGray {
+          background: none!important;
+          padding:20px 0px 0px 0px!important;
+          border: none!important;
+        }
+      }
       @media screen and (max-width: 768px) {
         #main-content {
           margin-bottom: 0px;
+        }
+        .pcg-header-bg{
+          background: none!important;
+        }
+        .pcg-header-title{
+          margin-bottom: 20px!important;
         }
         .pageHeaderBG {
           background: none;
@@ -74,59 +215,128 @@
         }
       }
     </style>
-  </head>
+</head>
+<body lang="en-US">
+  <div>
+    <div ng-app ng-controller="bcbsncController" id="bd" role="main">
+        #parse("members/secure/header-responsive-classic.htm")
 
-  <h1 id="main-content" tabindex="-1" class="pageHeader_27">Health Care Support</h1>
-  <div class="pageContent">  <!-- main container -->
-    <div class="">
-      <div class="content-header">
-        <p class="content-header-text">
-          Get help when you need it most with the Health Care Support Program&#42;, a benefit
-          of your State Health Plan. This program complements the care you receive from
-          your primary care provider, specialists, and other medical providers.
-        </p>
-        <!-- <div class="content-header-img"> -->
-          <img 
-            src="/assets/members/public/images/wellness/mobile-call-600x400.png"
-            width="160"
-            height="120"
-            class="content-header-img"
-          />
-        <!-- </div> -->
+        <div class="outer-container lactation-container">
+          <div class="content-container lactation-content container">
+
+            <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
+              #if($wo.feature.wellness)
+                <ul class="account-navigation" style="background:none;">
+                  <li id="resources-navigator"><p class="resources-navigator"></p><a href="/members/secure/wellness/index.htm">
+                    #if($wo.defaultPolicy.isPopHealth)
+                    Resources
+                    #else
+                    Overview
+                    #end
+                  </a></li>
+                  #if(!$wo.defaultPolicy.isState)
+                    #if($wo.feature.healthAssessment)
+                      <li><a href="/members/secure/wellness/healthy_assessment.htm">Health Assessment</a></li>
+                    #end
+                    #if($wo.feature.healthLineBlue)
+                      <li><a href="/members/secure/wellness/health_line_blue.htm">Health Line Blue</a></li>
+                    #end
+                    #if($wo.feature.alere)
+                      <li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
+                    #end
+                    #if($wo.program.onlineHealthPortal || $wo.program.alere ||  $wo.defaultPolicy.isState)
+                      <li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
+                        <ul class="resources-subnav hide subnav">
+                          <li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
+                          #if($wo.thisMember.age > 17 && $wo.program.healthCoach)
+                            <li><a href="/members/secure/wellness/resources/wellness_coaching.htm">Lifestyle Coaching </a></li>
+                          #end
+                          #if($wo.program.nutritionalCounseling)
+                            <li><a href="/members/secure/wellness/resources/nutritional_counseling.htm">Nutritional Counseling</a></li>
+                          #end
+                        </ul>
+                      </li>
+                    #end
+                  #end
+                  #if($wo.defaultPolicy.isPopHealth)
+                    <li id="hcs-navigator"><p class="hcs-navigator"></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+                  #end
+                  <li><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+                  #if(!$wo.defaultPolicy.isState)
+                    #if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
+                      <li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
+                    #end
+                    #if($wo.thisMember.age > 17 && $wo.program.maternity)
+                      <li><a href="/members/secure/wellness/maternity.htm">Healthy Outcomes Maternity Program</a></li>
+                    #end
+                  #end
+                </ul>
+              #end
+            </div>
+            <div id="main-content" class="inline-container lac-right-content pcg-header-bg">
+              <h1 id="main-content" tabindex="-1" class="pcg-header-title pageHeader_27">Health Care Support</h1>
+              <div class="pageContent">  <!-- main container -->
+                <div class="">
+                  <div class="content-header">
+                    <p class="content-header-text">
+                      Get help when you need it most with the Health Care Support Program&#42;, a benefit
+                      of your State Health Plan. This program complements the care you receive from
+                      your primary care provider, specialists, and other medical providers.
+                    </p>
+                    <!-- <div class="content-header-img"> -->
+                      <img 
+                        src="/assets/members/public/images/wellness/mobile-call-600x400.png"
+                        width="160"
+                        height="120"
+                        class="content-header-img"
+                      />
+                    <!-- </div> -->
+                  </div>
+                  <p>Get the support of a dedicated team of medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
+                  <ul>
+                    <li>Complex health conditions or Newly diagnosed illnesses</li>
+                    <li>Lifestyle changes that lead to better health</li>
+                    <li>Multiple providers and/or medications</li>
+                    <li>Understanding your provider&apos;s instructions</li>
+                    <li>Understanding your benefits</li>
+                    <li>Short-term disability</li>
+                    <li>Injuries from an accident</li>
+                    <li>Making connections to helpful community resources</li>
+                  </ul>
+                </div>
+
+                <div class="grayBlock" style="text-align: center; margin-top: 20px;">
+                  <p class="content-footer-info">
+                    <span class="info-1">If you need support,we&apos;re here for you</span><br />
+                    <span class="info-2"><span class="fc-solid-phone" style="font-size: 20px;"></span> Call <span style="white-space: nowrap;">1-833-298-1069</span></span><br />
+                    <span>Monday &ndash; Friday 8 am &ndash; 7:30 pm EST</span><br />
+                    <span>Saturday 9 am &ndash; 1 pm EST</span>
+                  </p>
+                </div>
+
+                <div class="vmargin25">
+                  <p class="hcs-sub-fotter"><span class="fc-solid-info"></span> &#42;The Health Care Support Program does not replace your current care and does not cost extra. You will continue to work with your 
+                  provider&#40;s&#41;. This program is included in your State Health Plan benefits.</p>
+                </div>
+
+                <div class="footnote vmargin25">
+                  <p>Blue Cross and Blue Shield of North Carolina is an independent licensee of the Blue Cross and Blue Shield
+                    Association. &reg; Marks of the Blue Cross and Blue Shield Association.</p>
+                </div>
+
+              </div>  <!-- end pageContent -->
+            </div>
+          </div>
+        </div>
       </div>
-      <p>Get the support of a dedicated team of medical professionals &mdash; nurses, social workers, nutritionists, pharmacists, and others &mdash; can help take the stress out of dealing with:</p>
-      <ul>
-        <li>Complex health conditions or Newly diagnosed illnesses</li>
-        <li>Lifestyle changes that lead to better health</li>
-        <li>Multiple providers and/or medications</li>
-        <li>Understanding your provider&apos;s instructions</li>
-        <li>Understanding your benefits</li>
-        <li>Short-term disability</li>
-        <li>Injuries from an accident</li>
-        <li>Making connections to helpful community resources</li>
-      </ul>
+      #parse("members/secure/footer-responsive-classic.htm")
+      #parse("members/secure/includes/benefitBookletTextDialog.htm")
     </div>
+  </div>
+  <script src="/assets/members/public/data-capture/blueconnect-data-capture-jquery.min.js"></script>
+  <script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>
 
-    <div class="grayBlock" style="text-align: center; margin-top: 20px;">
-      <p class="content-footer-info">
-        <span class="info-1">If you need support,we&apos;re here for you</span><br />
-        <span class="info-2"><span class="fc-solid-phone" style="font-size: 20px;"></span> Call <span style="white-space: nowrap;">1-833-298-1069</span></span><br />
-        <span>Monday &ndash; Friday 8 am &ndash; 7:30 pm EST</span><br />
-        <span>Saturday 9 am &ndash; 1 pm EST</span>
-      </p>
-    </div>
-
-    <div class="vmargin25">
-      <p class="hcs-sub-fotter"><span class="fc-solid-info"></span> &#42;The Health Care Support Program does not replace your current care and does not cost extra. You will continue to work with your 
-      provider&#40;s&#41;. This program is included in your State Health Plan benefits.</p>
-    </div>
-
-    <div class="footnote vmargin25">
-      <p>Blue Cross and Blue Shield of North Carolina is an independent licensee of the Blue Cross and Blue Shield
-        Association. &reg; Marks of the Blue Cross and Blue Shield Association.</p>
-    </div>
-
-  </div>  <!-- end pageContent -->
-
-#parse("members/secure/navigation.htm")
-#parse("members/secure/footer.htm")
+  <!-- Analytics -->
+  <script type="text/javascript">(function(){try{_satellite.pageBottom();}catch(e){}})();</script>
+</body>
+</html>
