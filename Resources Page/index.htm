@@ -42,30 +42,36 @@
     <head>
       <style>
         #healthPartnership {
-          background: #e9f7fe;
-          /* background-color: #e9f7fe; */
+          background: url('/assets/members/public/images/wellness/mobile-call-600x400.png') no-repeat; 
+          padding:10px 290px 0 10px;
+          height:154px;
+          background-position:top right;
+          background-color: #e9f7fe;
+          border:1px solid #d3d3d3;
         }
         .header-btn {
-          text-align: center;
+          text-align: left;
         }
-        .resources-link {
-          text-decoration: none;
-        }
-        .resources-link:hover {
-          text-decoration: underline;
-        }
-        @media screen and (min-width: 768px) {
-            #healthPartnership {
-              background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; 
-              padding:10px 290px 0 10px;
-              height:154px;
-              background-position:top right;
-              background-color: #e9f7fe;
-              border:1px solid #d3d3d3;
-            }
-            .header-btn {
-              text-align: left;
-            }
+        @media screen and (max-width: 768px) {
+          #healthPartnership {
+            background: #e9f7fe;
+            /* background-color: #e9f7fe; */
+          }
+          .header-btn {
+            text-align: center;
+          }
+          .resources-link {
+            text-decoration: none;
+          }
+          .resources-link:hover {
+            text-decoration: underline;
+          }
+          .pageHeaderBG {
+            background: none;
+          } 
+          .yui-b { 
+            margin-left: 0px; 
+          }
         }
       </style>
     </head>
