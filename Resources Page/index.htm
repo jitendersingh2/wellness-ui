@@ -1,11 +1,8 @@
-#set($header = "secure")
 #set($navigation = 5 )
-#set($footer = "secure")
 #set($onload = "wellness")
 #set($testing = true)
 #set($wellnessPage = true)
 
-#parse("members/secure/header.htm")
 #if(!$wo.feature.wellness)
     #parse( "members/secure/no-access.htm" )
 #end
@@ -38,167 +35,387 @@
 <!-- isPopHealth: $wo.defaultPolicy.isPopHealth -->
 <!-- loggedInMember.getPolicyAttributeByName(populationHealthCode): $loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,"populationHealthCode") -->
 
-    
-    <head>
-      <style>
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Blue Connect - Blue Cross and Blue Shield of North Carolina</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/assets/global/css/classic.css">
+    <link rel="stylesheet" href="/assets/members/public/account/css/account.css">
+    #if($wo.thisMember.isFacetsTieredPlanMem)
+		<link rel="stylesheet" href="/assets/members/public/styles/style-blueselectplus.css" type="text/css" media="screen">
+	#else
+		<link rel="stylesheet" href="/assets/members/public/styles/style.css" type="text/css" media="screen">
+	#end
+	
+	<script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
+	<script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/angular-tabby/1.0.0/tabby.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/modal/1.0.0/directive.modal.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/accessibility/1.0.0/accessibility.js"></script>
+	<script src="/assets/global/js/libs/underscore/1.4.2/underscore-min.js"></script>
+	<script src="/assets/global/js/bcbsnc.js"></script>
+	<script src="/members/secure/bcbsnc.js"></script>
+	<script src="/assets/members/public/scripts/member-secure.js"></script>
+	<script src="/assets/common/scripts/jquery.url.packed.js"></script>
+	<script src="/assets/global/js/libs/jquery/plugins/selectToUISlider.jQuery.js"></script>
+	<script src="/assets/common/scripts/jquery.accordionFAQ508.js"></script>
+	<script src="/assets/common/scripts/jquery.cookie.pack.js"></script>
+	<script src="/assets/common/scripts/jquery.ajaxmanager.js" ></script>
+	<script src="/assets/members/public/scripts/password_strength_plugin.js"></script>
+	<script src="/assets/common/scripts/jquery.printElement.js"></script>
+	<script src="/assets/common/scripts/pop-up-windows.js"></script>
+
+	<!-- Universal JS/CSS Injector -->
+	<script src="/assets/global/js/swag.js"></script>
+
+	<script src="/assets/members/public/scripts/member.js"></script>
+	<script src="/assets/members/public/scripts/ms-reg.js"></script>
+	<script src="/assets/members/public/scripts/member-benefits.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements, media queries, and CSS3 selectors -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="/assets/global/js/libs/html5shiv/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/assets/global/js/libs/respond/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Analytics -->
+   <script src="//assets.adobedtm.com/b92b24179510af4995a1d72353a153eb7c4088bd/satelliteLib-c18ca7f8fb667eb793fda628c520dd7458b3ca87.js"></script>
+
+    <style>
+    #healthPartnership {
+        background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; 
+        padding:10px 290px 0 10px;
+        height:154px;
+        background-position:top right;
+        background-color: #e9f7fe;
+        border:1px solid #d3d3d3;
+    }
+    .header-btn {
+        text-align: left;
+    }
+    .pageContent .grayBlock { 
+        background-color: #f3f3f3; 
+        padding:10px !important; 
+        margin-bottom: 10px; 
+        overflow: auto; color:black;
+    }
+    .vmargin25 { 
+        margin-top:25px; 
+        margin-bottom:25px; 
+    }
+    .footnote  { font-size: .8em; color:#666; }
+    .footnote sup { font-size: .7em; color:#666; }
+    .footnote p, .footnote ul li{ font-size: 10px; }
+    .content-footer-info {
+        margin-bottom: 0px;
+    }
+    ul.account-navigation .activeNav p.hcs-navigator{
+        top: 65px!important;
+    }
+    ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
+        display: none;
+    }
+    ul.account-navigation .activeNav p.resources-navigator, ul.account-navigation .activeNav p.hcs-navigator{
+        display: inline-block;
+        position: absolute;
+        top: 9px;
+        left: 180px;
+        border-top: 24px solid transparent;
+        border-bottom: 24px solid transparent;
+        border-left: 15px solid #008fda;
+    }
+    ul.account-navigation .activeNav p.pcg-navigator{
+        position: absolute;
+        left: 180px;
+        border-top: 38px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 15px solid #008fda; 
+    }
+    ul{color: #666;}
+    ul.account-navigation li.activeNav a { background-color: #008fda; }
+    ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
+    .activeNav {
+        /* background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px; */
+        width:155px;
+        margin:0px !IMPORTANT;
+    }
+    .activeNav span {
+    /* background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent; */
+        height: 100%;
+        float:left;
+        position: absolute;
+        padding: 12px 5px 12px 0;
+        margin:3px 0 0 181px ! important;
+    }
+    span.iconLink { display: inline-block; }
+    span.iconPDF { display: inline-block; margin: 0 5px; }
+    .iconLink { background: url('/assets/members/public/images/member-spritemap.png'); background-position: -588px -353px; height:14px; width:16px; text-indent: 135%; overflow: hidden; white-space: nowrap; margin:0px;}
+    .lactation-container ul.account-navigation,
+    .lactation-container ul.account-navigation li,
+    .lactation-container ul.account-navigation a {
+        width: 180px;
+    }
+    .lactation-container .lac-right-content {
+        width:78%;
+    }
+    .lactation-container .lac-left-content {
+        width: 16%;
+        vertical-align: top;
+        margin: 25px 20px 10px 0px;
+    }
+    .lactation-container .inline-container {
+        display: inline-block;
+    }
+    .buttonblue { -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; height:30px; color:#fff; padding:5px 15px 7px 15px; font-size:14px; background: #239ad8 url('https://wwwps.bcbsnc.com/assets/members/public/images/member-spritemap-bgs.png') 0px -85px; border:1px solid #239ad8; }
+    .buttonblue:hover { background-position: 0px -54px; border:1px solid #0074b0; cursor:pointer;}
+    .vmargin25 { margin-top:15px; }
+    #wellnesshealthassessmentContainerGray {background: url("https://wwwps.bcbsnc.com/assets/members/public/images/health_assessment.jpg") no-repeat top left;background-color:#F3F3F3;padding:10px 0px 0px 200px;}
+    .resources-subnav-removehide{display: block!important;}
+    @media screen and (max-width: 991px) {
+        .lactation-container .lac-right-content {
+          width: 100%;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .lactation-container ul.account-navigation,
+        .lactation-container ul.account-navigation li,
+        .lactation-container ul.account-navigation a {
+          width: 153px;
+        }
+        ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
+          left: 153px!important;
+        }
+        .lactation-container .lac-left-content {
+          width: 16.4%;
+        }
+    }
+    @media screen and (max-width: 766px) {
+    #healthPartnership, #wellnesshealthassessmentContainerGray {
+          background: none!important;
+          padding:20px 0px 0px 0px!important;
+          border: none!important;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        #main-content {
+            margin-bottom: 0px;
+        }
+        .pcg-header-bg{
+            background: none!important;
+        }
+        .pcg-header-title{
+            margin-bottom: 20px!important;
+        }
         #healthPartnership {
-          background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; 
-          padding:10px 290px 0 10px;
-          height:154px;
-          background-position:top right;
-          background-color: #e9f7fe;
-          border:1px solid #d3d3d3;
+            background: #e9f7fe;
         }
         .header-btn {
-          text-align: left;
-        }
-        @media screen and (max-width: 768px) {
-          #main-content {
-            margin-bottom: 0px;
-          }
-          #healthPartnership {
-            background: #e9f7fe;
-            /* background-color: #e9f7fe; */
-          }
-          .header-btn {
             text-align: center;
-          }
-          .resources-link {
-            text-decoration: none;
-          }
-          .resources-link:hover {
-            text-decoration: underline;
-          }
-          .pageHeaderBG {
-            background: none;
-          } 
-          .yui-b { 
-            margin-left: 0px; 
-          }
         }
-      </style>
-    </head>
-    <h1 id="main-content" tabindex="-1" class="pageHeader_27">
-        #if($wo.defaultPolicy.isPopHealth)
-        Get Healthy
-        #else
-        Wellness
-        #end
-    </h1>
+        .resources-link {
+            text-decoration: none;
+        }
+        .resources-link:hover {
+            text-decoration: underline;
+        }
+        .pageHeaderBG {
+            background: none;
+        } 
+        .yui-b { 
+            margin-left: 0px; 
+        }
+    }
+    </style>
+</head>
+<body lang="en-US">
+    <div>
+        <div ng-app ng-controller="bcbsncController" id="bd" role="main">
+            #parse("members/secure/header-responsive-classic.htm")
+    
+            <div class="outer-container lactation-container">
+                <div class="content-container lactation-content container">
+    
+                    <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
+                        #if($wo.feature.wellness)
+                        <ul class="account-navigation" style="background:none;">
+                            <li id="resources-navigator"><p class="resources-navigator"></p><a href="/members/secure/wellness/index.htm">
+                            #if($wo.defaultPolicy.isPopHealth)
+                            Resources
+                            #else
+                            Overview
+                            #end
+                            </a></li>
+                            #if(!$wo.defaultPolicy.isState)
+                            #if($wo.feature.healthAssessment)
+                                <li><a href="/members/secure/wellness/healthy_assessment.htm">Health Assessment</a></li>
+                            #end
+                            #if($wo.feature.healthLineBlue)
+                                <li><a href="/members/secure/wellness/health_line_blue.htm">Health Line Blue</a></li>
+                            #end
+                            #if($wo.feature.alere)
+                                <li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
+                            #end
+                            #if($wo.program.onlineHealthPortal || $wo.program.alere ||  $wo.defaultPolicy.isState)
+                                <li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
+                                <ul class="resources-subnav hide subnav">
+                                    <li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
+                                    #if($wo.thisMember.age > 17 && $wo.program.healthCoach)
+                                    <li><a href="/members/secure/wellness/resources/wellness_coaching.htm">Lifestyle Coaching </a></li>
+                                    #end
+                                    #if($wo.program.nutritionalCounseling)
+                                    <li><a href="/members/secure/wellness/resources/nutritional_counseling.htm">Nutritional Counseling</a></li>
+                                    #end
+                                </ul>
+                                </li>
+                            #end
+                            #end
+                            #if($wo.defaultPolicy.isPopHealth)
+                            <li id="hcs-navigator"><p class="hcs-navigator"></p><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+                            #end
+                            <li><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+                            #if(!$wo.defaultPolicy.isState)
+                            #if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
+                                <li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
+                            #end
+                            #if($wo.thisMember.age > 17 && $wo.program.maternity)
+                                <li><a href="/members/secure/wellness/maternity.htm">Healthy Outcomes Maternity Program</a></li>
+                            #end
+                            #end
+                        </ul>
+                        #end
+                    </div>
+                    <div id="main-content" class="inline-container lac-right-content pcg-header-bg">
 
-    <div class="pageContent">
-        #parse("members/public/outage-message-body.htm")
+                        <h1 id="main-content" tabindex="-1" class="pcg-header-title pageHeader_27">
+                            #if($wo.defaultPolicy.isPopHealth)
+                            Get Healthy
+                            #else
+                            Wellness
+                            #end
+                        </h1>
 
-        <div id="mainContentContainer" style="float:right;width:100%;">
-            <!--  main content area  -->
-            #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
-            <div id="healthPartnership">
-                #if($wo.defaultPolicy.isPopHealth)
-                <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
-                
-                <div class="header-btn">
-                    <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
+                        <div class="pageContent">
+                            #parse("members/public/outage-message-body.htm")
+
+                            <div id="mainContentContainer" style="float:right;width:100%;">
+                                <!--  main content area  -->
+                                #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
+                                <div id="healthPartnership">
+                                    #if($wo.defaultPolicy.isPopHealth)
+                                    <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
+                                    
+                                    <div class="header-btn">
+                                        <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
+                                    </div>
+
+                                    <p><strong>Take a look below at the various resources available to help you.</strong></p>
+                                    #else
+                                    <p style="margin:5px 0 20px;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our <strong>Healthy Outcomes</strong> programs encourage our members to get healthy, help members understand and manage chronic health conditions, and promote preventive health and wellness activities.</p>
+                                    
+                                    <a href="#" id="sso-link-visit-wellness" data-vendor="optum" style="text-decoration: none;">
+                                        <input name="getStartedBtn" class="buttonblue" style-"margin-bottom:10px;"="" type="button" value="Visit Wellness">
+                                    </a>
+                                    #end
+                                </div>
+                                #elseif(($wo.defaultPolicy.isGroup && (!$wo.program.alere || $wo.program.incentFulfillment == 'G')) || ($wo.program.onlineHealthPortal && $wo.thisMember.age < 18))
+                                <div id="healthPartnership" style="background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 360px 0 10px;height:154px;background-position:top right;background-color: #e9f7fe;border:1px solid #d3d3d3">
+                                    <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p>
+                                </div>
+                                #end
+
+                                <div class="clear"></div>
+
+                                #if($wo.program.onlineHealthPortal && $wo.thisMember.age >17)
+                                <div id="HealthyOutcomes" class="clear">
+                                    <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon">
+                                        <a href="#" id="sso-link-personal-health-record" data-vendor="optum" data-deeplink="personalhealthrecord">Personal Health Record</a>
+                                        <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+                                    </h3>
+                                    <p><strong>Having trouble keeping all your health records and doctor contact information handy?</strong></p>
+                                    <p>Keep everything you need in one secure, convenient place - track your health history and measurements, exams, appointments and more. You can even get medication alerts. When you're ready, print your information and share it with your health care provider to help you remember everything you need to discuss.</p>
+                                </div>
+                                <hr class="topMargin20" />
+                                #end
+
+                                <hr class="topMargin20" />
+
+                                <h3 class="titleHeader_20_0_10_0">Wellness Resources</h3>
+                                <p>Try these online resources to find new information and tools for taking care of your health.</p>
+
+                                #if(($wo.program.alere || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
+                                <div id="HealthyWiseKnowledge" class="clear">
+                                    <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" class="resources-link" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p></h3>
+                                    <p>Our online health encyclopedia lets you look up a wide variety of symptoms, health conditions, medical tests, treatments and medications.</p>
+                                </div>
+                                #end
+
+                                <!--
+                                <p class="titleLinkicon"> <a href="http://www.getgoingnc.com" target="_blank">Get Going NC!</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+                                <p>Follow this blog to find a sport, activity or event that makes you want to get moving!</p>
+                                -->
+                                
+                                #if($wo.defaultPolicy.isPopHealth)
+                                <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm" class="resources-link">Preventive Care</a></p>
+                                <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="/content/campaigns/preventive/index.htm" class="resources-link">Learn more</a> about preventive health guidelines for family members of all ages.</p>
+                                #end
+                                
+                                <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" class="resources-link" target="_blank">Live Happier &amp; Healthier</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
+                                <p>Blue Cross NC's destination for fitness, recipes, and lifestyle tips.</p>
+                            
+                                <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm" class="resources-link">Member Discounts: Blue 365 Program</a></p>
+                                <p>Find great member discounts on fitness and health tools.</p>
+
+                                <hr class="topMargin20" />
+                            </div>  <!-- main container -->
+                            <br clear="all"/>
+                            <div class="footnote vmargin25">
+                                <p class="titleLinkicon">Your privacy is important to us. View our <a href="/members/public/privacy/index.htm" class="resources-link">Program disclaimers and privacy policy</a> for more information.</p>
+
+                                #if($wo.program.alere && $wo.thisMember.age > 17)
+                                <p><sup style="font-size:.9em;">1</sup>Blue  Cross and Blue Shield of North Carolina (BCBSNC) has contracted with Optum to bring you this service. The information contained within is intended as a resource and is not intended to provide medical advice.</p>
+                                #elseif($wo.defaultPolicy.isPopHealth && $wo.thisMember.age > 17)
+                                <p><sup style="font-size:.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
+                                #end
+                                <p>Eligibility for the Healthy Outcomes wellness program is dependent on several factors, including product enrollment.  Please see program terms and conditions for details.</p>
+                                <p>BCBSNC offers Healthy Outcomes programs as a convenience to aid you in improving your health; results are not guaranteed. BCBSNC contracts with Optum, an independent third party vendor, for the provision of certain aspects of Healthy Outcomes programs and is not liable in any way for goods or services received from Optum. Optum does not provide Blue Cross or Blue Shield products or services. BCBSNC reserves the right to discontinue or change Healthy Outcomes programs at any time. The programs are educational in nature, and are intended to help you make informed decisions about your health, and to help you comply with your doctor's plan of care. Decisions regarding your care should be made with the advice of your doctor.</p>
+                                <p>An independent licensee of the Blue Cross and Blue Shield Association. &reg; Mark of the Blue Cross and Blue Shield Association. &reg;<sup style="font-size:.9em;">1</sup> is a federally registered trademark of Healthwise, Inc. </p>
+                            </div>
+
+                            <div id="optumRedirect">
+                                <a id="wellness" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https://${alereEnv}/portal/server.pt');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')">
+                                <a id="asthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="childasthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="copd" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_copd');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="chf" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_chf');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="cad" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_cad');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="diabetes" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_diabetes');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="teamup" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_working_with_doc');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                                <a id="challengedashboard" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dchallenge');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
+                            </div>
+                        </div>  <!-- end pageContent -->
+                    </div>
                 </div>
-
-                <p><strong>Take a look below at the various resources available to help you.</strong></p>
-                #else
-                <p style="margin:5px 0 20px;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our <strong>Healthy Outcomes</strong> programs encourage our members to get healthy, help members understand and manage chronic health conditions, and promote preventive health and wellness activities.</p>
-                
-                <a href="#" id="sso-link-visit-wellness" data-vendor="optum" style="text-decoration: none;">
-                    <input name="getStartedBtn" class="buttonblue" style-"margin-bottom:10px;"="" type="button" value="Visit Wellness">
-                </a>
-                #end
-            </div>
-            #elseif(($wo.defaultPolicy.isGroup && (!$wo.program.alere || $wo.program.incentFulfillment == 'G')) || ($wo.program.onlineHealthPortal && $wo.thisMember.age < 18))
-            <div id="healthPartnership" style="background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; padding:10px 360px 0 10px;height:154px;background-position:top right;background-color: #e9f7fe;border:1px solid #d3d3d3">
-                <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p>
-            </div>
-            #end
-
-            <div class="clear"></div>
-
-            #if($wo.program.onlineHealthPortal && $wo.thisMember.age >17)
-            <div id="HealthyOutcomes" class="clear">
-                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon">
-                    <a href="#" id="sso-link-personal-health-record" data-vendor="optum" data-deeplink="personalhealthrecord">Personal Health Record</a>
-                    <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-                </h3>
-                <p><strong>Having trouble keeping all your health records and doctor contact information handy?</strong></p>
-                <p>Keep everything you need in one secure, convenient place - track your health history and measurements, exams, appointments and more. You can even get medication alerts. When you're ready, print your information and share it with your health care provider to help you remember everything you need to discuss.</p>
-            </div>
-            <hr class="topMargin20" />
-            #end
-
-            <hr class="topMargin20" />
-
-            <h3 class="titleHeader_20_0_10_0">Wellness Resources</h3>
-            <p>Try these online resources to find new information and tools for taking care of your health.</p>
-
-            #if(($wo.program.alere || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
-            <div id="HealthyWiseKnowledge" class="clear">
-                <h3 class="titleHeader_20_0_10_0"><p class="titleLinkicon"><span style="margin-bottom: -1px;"><a href="#" id="sso-link-healthwise-knowledgebase" class="resources-link" data-vendor="optum" data-deeplink="healthwiseknowledgebase" style="position:relative;top:2px;">Healthwise<sup>&reg;1</sup> Knowledgebase<sup>1</sup></a></span> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p></h3>
-                <p>Our online health encyclopedia lets you look up a wide variety of symptoms, health conditions, medical tests, treatments and medications.</p>
-            </div>
-            #end
-
-            <!--
-            <p class="titleLinkicon"> <a href="http://www.getgoingnc.com" target="_blank">Get Going NC!</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-            <p>Follow this blog to find a sport, activity or event that makes you want to get moving!</p>
-            -->
-            
-            #if($wo.defaultPolicy.isPopHealth)
-            <p class="titleLink"><a href="/members/secure/wellness/preventive_care_guidelines.htm" class="resources-link">Preventive Care</a></p>
-            <p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. <a href="/content/campaigns/preventive/index.htm" class="resources-link">Learn more</a> about preventive health guidelines for family members of all ages.</p>
-            #end
-            
-            <p class="titleLinkicon"><a href="http://blog.bcbsnc.com/wellness" class="resources-link" target="_blank">Live Happier &amp; Healthier</a> <span class="fc-external-link" style="color:#B3AAA1;">&nbsp;</span></p>
-            <p>Blue Cross NC's destination for fitness, recipes, and lifestyle tips.</p>
-        
-            <p class="titleLink"><a href="/members/secure/benefits/discounts/index.htm" class="resources-link">Member Discounts: Blue 365 Program</a></p>
-            <p>Find great member discounts on fitness and health tools.</p>
-
-            <hr class="topMargin20" />
-        </div>  <!-- main container -->
-        <br clear="all"/>
-        <div class="footnote vmargin25">
-            <p class="titleLinkicon">Your privacy is important to us. View our <a href="/members/public/privacy/index.htm" class="resources-link">Program disclaimers and privacy policy</a> for more information.</p>
-
-            #if($wo.program.alere && $wo.thisMember.age > 17)
-            <p><sup style="font-size:.9em;">1</sup>Blue  Cross and Blue Shield of North Carolina (BCBSNC) has contracted with Optum to bring you this service. The information contained within is intended as a resource and is not intended to provide medical advice.</p>
-            #elseif($wo.defaultPolicy.isPopHealth && $wo.thisMember.age > 17)
-            <p><sup style="font-size:.9em;">1</sup> Blue Cross and Blue Shield of North Carolina (Blue Cross NC) has contracted with Optum to bring you this service. The information contained within is intended as resource and is not intended to provide medical advice.</p>
-            #end
-            <p>Eligibility for the Healthy Outcomes wellness program is dependent on several factors, including product enrollment.  Please see program terms and conditions for details.</p>
-            <p>BCBSNC offers Healthy Outcomes programs as a convenience to aid you in improving your health; results are not guaranteed. BCBSNC contracts with Optum, an independent third party vendor, for the provision of certain aspects of Healthy Outcomes programs and is not liable in any way for goods or services received from Optum. Optum does not provide Blue Cross or Blue Shield products or services. BCBSNC reserves the right to discontinue or change Healthy Outcomes programs at any time. The programs are educational in nature, and are intended to help you make informed decisions about your health, and to help you comply with your doctor's plan of care. Decisions regarding your care should be made with the advice of your doctor.</p>
-            <p>An independent licensee of the Blue Cross and Blue Shield Association. &reg; Mark of the Blue Cross and Blue Shield Association. &reg;<sup style="font-size:.9em;">1</sup> is a federally registered trademark of Healthwise, Inc. </p>
+            </div>  
+            #parse("members/secure/footer-responsive-classic.htm")
+            #parse("members/secure/includes/benefitBookletTextDialog.htm")      
         </div>
-
-        <div id="optumRedirect">
-            <a id="wellness" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https://${alereEnv}/portal/server.pt');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')">
-            <a id="asthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="childasthma" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_asthma');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="copd" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_copd');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="chf" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_chf');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="cad" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_cad');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="diabetes" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_diabetes');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="teamup" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dlibrary_working_with_doc');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <a id="challengedashboard" class="hide" href="javascript:void(0)" onclick="alerepopup('https://${producerEnv}.bcbsnc.com/FIM/sps/AlereFed/saml20/logininitial?RequestBinding=HTTPPost&amp;NameIdFormat=Email&amp;PartnerId=https://${partnerId}/sso/saml&amp;Target=https%3A%2F%2F${alereEnv}%2Fmve%2Fdeeplink%3Foptions%3Dchallenge');trackSso('SSO_ALERE_WELLNESS', 'https://${alereEnv}/portal/server.pt')"></a>
-            <script>
-                var querystring = window.location.search.substring(1).split("&");
-                for ( var x = 0; x < querystring.length; x++ ) {
-                    var value = querystring[x].split("=");
-                    if ( value[0].indexOf("optumLink")>-1 ) {
-                        selector = '#optumRedirect #' + value[1].toLowerCase();
-                        $(selector).click();
-                    }
-                }
-            </script>
-        </div>
-
-    </div>  <!-- end pageContent -->
-
-<script src="/assets/members/public/data-capture/blueconnect-data-capture-jquery.min.js"></script>
-<script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>
-
-#parse("members/secure/navigation.htm")
-#parse("members/secure/footer.htm")
+    </div>
+    <script src="/assets/members/public/data-capture/blueconnect-data-capture-jquery.min.js"></script>
+    <script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>
+    <!-- Analytics -->
+    <script type="text/javascript">(function(){try{_satellite.pageBottom();}catch(e){}})();</script>
+    <script>
+        var querystring = window.location.search.substring(1).split("&");
+        for ( var x = 0; x < querystring.length; x++ ) {
+            var value = querystring[x].split("=");
+            if ( value[0].indexOf("optumLink")>-1 ) {
+                selector = '#optumRedirect #' + value[1].toLowerCase();
+                $(selector).click();
+            }
+        }
+    </script>
+</body>
+</html>
