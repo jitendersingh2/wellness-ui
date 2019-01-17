@@ -3,6 +3,11 @@
 #set($testing = true)
 #set($wellnessPage = true)
 
+#parse("members/webEnv.htm")
+#parse("members/secure/velocityData/velocityjson.vm")
+#parse("members/secure/velocityData/data.vm")
+#parse("members/secure/header-logic.htm")
+
 #if(!$wo.feature.wellness)
     #parse( "members/secure/no-access.htm" )
 #end
