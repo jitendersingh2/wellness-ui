@@ -89,6 +89,12 @@
         background: url(https://www.bcbsnc.com/assets/members/public/images/member-pageheader-bg.png) -100px -10px no-repeat;
         background-size: 115% auto;
     }
+    .resources-header-content {
+        margin: 5px 0 20px;
+    }    
+    .resources-action-btn {
+        margin-bottom: 10px;
+    }
     #healthPartnership {
         background: url('/assets/members/public/images/wellness/beach-family.png') no-repeat; 
         padding:10px 290px 0 10px;
@@ -195,6 +201,14 @@
           width: 16.4%;
         }
     }
+    @media screen and (max-width: 440px) {
+        .resources-header-content{
+            margin-bottom: 2px;
+        }
+        .resources-action-btn{
+            margin-bottom: 2px;
+        }
+    }
     @media screen and (max-width: 768px) {
         #main-content {
             margin-bottom: 0px;
@@ -204,6 +218,12 @@
         }
         .pcg-header-title{
             margin-bottom: 20px!important;
+        }
+        .resources-header-content{
+            margin-bottom: 5px;
+        }
+        .resources-action-btn{
+            margin-bottom: 5px;
         }
         #healthPartnership {
             background: #e9f7fe;
@@ -302,10 +322,10 @@
                                 #if(($wo.program.onlineHealthPortal || $wo.defaultPolicy.isPopHealth) && $wo.thisMember.age > 17)
                                 <div id="healthPartnership">
                                     #if($wo.defaultPolicy.isPopHealth)
-                                    <p style="margin: 5px 0 20px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
+                                    <p class="resources-header-content">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
                                     
                                     <div class="header-btn">
-                                        <button class="buttonblue" name="getStartedBtn" style="margin-bottom: 10px;" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
+                                        <button class="buttonblue resources-action-btn" name="getStartedBtn" onclick="ssoToVendor('optum')">Visit Personal Health Portal</button>
                                     </div>
 
                                     <p><strong>Take a look below at the various resources available to help you.</strong></p>
