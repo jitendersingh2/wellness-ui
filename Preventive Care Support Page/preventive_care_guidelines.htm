@@ -126,7 +126,7 @@
 		<div class="col-md-12 pcg-header-bg">
 			<h1 class="pcg-header-title">Preventive Care Guidelines</h1>
 			<div class="row pcg-content-header">
-				<div class="col-xs-12 col-md-9">
+				<div class="col-xs-12 col-md-12">
 					<h3 class="titleHeaderVisitingtheDoctor" style="font-weight: bold;"><img class="pcg-doc-image" src="/assets/members/public/images/wellness/doctor-solid.png" height="35" width="35" alt="Doctor"/> Visiting the Doctor</h3>
 					<p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. BCBSNC has compiled the following health guidelines for family members of all ages.  </p>
 					<p>Check your
@@ -157,13 +157,6 @@
 							#end
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 pcg-header-img">
-					<img 
-						src="/assets/members/public/images/wellness/patient-checkup-600x400.png" 
-						height="170"
-						width="207"
-					  alt="Patient Checkup"/>
 				</div>
 			</div>
 
@@ -349,6 +342,10 @@
   .pcg-header-img{
 	display: none;	
   }
+	.pcg-content-header{
+		background: #e9f7fe!important;
+		padding: 0px!important;
+	}
   .pcg-doc-image{
 	display: inline-block!important;
 	}
@@ -356,7 +353,7 @@
 	margin-left: 0px!important;
   }
   .pcg-navbar li.noContent1, .pcg-navbar .emptyLi{
-	display: none;
+	display: none!important;
   }
   .pcg-navbar li.content{
 	display: block;
@@ -393,6 +390,10 @@
   padding-top: 55px;
 }
 .pcg-content-header{
+	background: url("/assets/members/public/images/wellness/patient-checkup-600x400.png") no-repeat;
+	background-size: 38% 100%;
+	padding: 10px 32% 0 10px;
+	background-position:top right;
   background-color: #e9f7fe;
   border:1px solid #d3d3d3;
 }
