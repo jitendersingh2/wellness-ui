@@ -1,0 +1,382 @@
+#set($navigation = 5 )
+#set($onload = "wellness")
+
+#parse("members/webEnv.htm")
+#parse("members/secure/velocityData/velocityjson.vm")
+#parse("members/secure/velocityData/data.vm")
+#parse("members/secure/header-logic.htm")
+
+#if(!$wo.feature.wellness)
+	#parse ("members/secure/no-access.htm")
+#end
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <title>Blue Connect - Blue Cross and Blue Shield of North Carolina</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/global/css/classic.css">
+  <link rel="stylesheet" href="/assets/members/public/account/css/account.css">
+
+	<script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
+	<script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/angular-tabby/1.0.0/tabby.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/modal/1.0.0/directive.modal.js"></script>
+	<script src="/assets/global/js/libs/bcbsnc/angular/accessibility/1.0.0/accessibility.js"></script>
+	<script src="/assets/global/js/libs/underscore/1.4.2/underscore-min.js"></script>
+	<script src="/assets/global/js/bcbsnc.js"></script>
+	<script src="/members/secure/bcbsnc.js"></script>
+	<script src="/assets/members/public/scripts/member-secure.js"></script>
+	<script src="/assets/common/scripts/jquery.url.packed.js"></script>
+	<script src="/assets/global/js/libs/jquery/plugins/selectToUISlider.jQuery.js"></script>
+	<script src="/assets/common/scripts/jquery.accordionFAQ508.js"></script>
+	<script src="/assets/common/scripts/jquery.cookie.pack.js"></script>
+	<script src="/assets/common/scripts/jquery.ajaxmanager.js" ></script>
+	<script src="/assets/members/public/scripts/password_strength_plugin.js"></script>
+	<script src="/assets/common/scripts/jquery.printElement.js"></script>
+	<script src="/assets/common/scripts/pop-up-windows.js"></script>
+
+	<!-- Universal JS/CSS Injector -->
+	<script src="/assets/global/js/swag.js"></script>
+
+	<script src="/assets/members/public/scripts/member.js"></script>
+	<script src="/assets/members/public/scripts/ms-reg.js"></script>
+	<script src="/assets/members/public/scripts/member-benefits.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements, media queries, and CSS3 selectors -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="/assets/global/js/libs/html5shiv/html5shiv.min.js"></script>
+  <script type="text/javascript" src="/assets/global/js/libs/respond/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Analytics -->
+   <script src="//assets.adobedtm.com/b92b24179510af4995a1d72353a153eb7c4088bd/satelliteLib-c18ca7f8fb667eb793fda628c520dd7458b3ca87.js"></script>
+
+</head>
+<!--[if lt IE 7]> <body class="lt-ie10 lt-ie9 lt-ie8 lt-ie7 ie" lang="en-US" ng-app="account"> <![endif]-->
+<!--[if IE 7]> <body class="lt-ie10 lt-ie9 lt-ie8 ie" lang="en-US" ng-app="account"> <![endif]-->
+<!--[if IE 8]> <body class="lt-ie10 lt-ie9 ie" lang="en-US" ng-app="account"> <![endif]-->
+<!--[if IE 9]> <body class="lt-ie10 ie" lang="en-US" ng-app="account"> <![endif]-->
+<!--[if gt IE 9]><!--> <body lang="en-US"> <!--<![endif]-->
+  <div>
+	<div ng-app ng-controller="bcbsncController" id="bd" role="main">
+
+    #parse("members/secure/header-responsive-classic.htm")
+
+		<div class="outer-container lactation-container">
+          <div class="content-container lactation-content container">
+
+            <div class="inline-container lac-left-content col-lg-2 col-md-3 hidden-sm hidden-xs no-padding nav-background-sprite">
+              #if($wo.feature.wellness)
+              	<ul class="account-navigation">
+									<li><a href="/members/secure/wellness/index.htm">
+										#if($wo.defaultPolicy.isPopHealth)
+										Resources
+										#else
+										Overview
+										#end
+									</a></li>
+              		#if(!$wo.defaultPolicy.isState)
+              			#if($wo.feature.healthAssessment)
+              				<li><a href="/members/secure/wellness/healthy_assessment.htm">Health Assessment</a></li>
+              			#end
+              			#if($wo.feature.healthLineBlue)
+              				<li><a href="/members/secure/wellness/health_line_blue.htm">Health Line Blue</a></li>
+              			#end
+              			#if($wo.feature.alere)
+              				<li><a href="/members/secure/wellness/wellness_activities.htm">Wellness Activities</a></li>
+              			#end
+              			#if($wo.program.onlineHealthPortal || $wo.program.alere ||  $wo.defaultPolicy.isState)
+              				<li class="navsection"><a href="/members/secure/wellness/resources/resources.htm">Resources</a>
+              					<ul class="resources-subnav hide subnav">
+              						<li><a href="/members/secure/wellness/resources/case_management.htm">Case Management</a></li>
+              						#if($wo.thisMember.age > 17 && $wo.program.healthCoach)
+              							<li><a href="/members/secure/wellness/resources/wellness_coaching.htm">Lifestyle Coaching </a></li>
+              						#end
+              						#if($wo.program.nutritionalCounseling)
+              							<li><a href="/members/secure/wellness/resources/nutritional_counseling.htm">Nutritional Counseling</a></li>
+              						#end
+              					</ul>
+              				</li>
+              			#end
+              		#end
+              		#if($wo.defaultPolicy.isPopHealth)
+              				<li><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
+              		#end
+              		<li><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+              		#if(!$wo.defaultPolicy.isState)
+              			#if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
+              				<li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
+              			#end
+              			#if($wo.thisMember.age > 17 && $wo.program.maternity)
+              				<li><a href="/members/secure/wellness/maternity.htm">Healthy Outcomes Maternity Program</a></li>
+              			#end
+              		#end
+              	</ul>
+              #end
+						</div>
+
+<div id="main-content" class="inline-container lac-right-content" tabindex="-1">
+
+	<h1>Preventive Care Guidelines</h1>
+
+  <div class="">
+			<div class="col-md-8">
+			<h3 class="titleHeaderVisitingtheDoctor">Visiting the Doctor</h3>
+			<p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. BCBSNC has compiled the following health guidelines for family members of all ages.  </p>
+			<p>Check your
+				#parse( "members/secure/benefits/include_benefits_booklet.htm" )
+				for your specific preventive health benefits.</p>
+			<a class="titleLink" href="#new"> Babies and Toddlers (0-35 months)</a><br/>
+			<a class="titleLink" href="#children"> Children and Adolescents (3-18 years)</a><br/>
+			<a class="titleLink" href="#adults19_64"> Adults (19+ years)</a>
+<br />
+<h3>Babies and Toddlers (0-35 months)</h3><a name="new"></a>
+			<p>Your baby should visit the doctor for regular check-ups at the following ages:</p>
+			<table width="430" border="0">
+			  <tr>
+				<td>
+					<ul>
+						<li>2-4 days</li>
+						<li>2 weeks to 1 month </li>
+						<li>2 months </li>
+						<li>4 months</li>
+					</ul>
+				</td>
+				<td>
+						<ul>
+							 <li> 6 months </li>
+							 <li> 9 months </li>
+							 <li>12 months   </li>
+							 <li>15 months </li>
+						</ul>
+					</td>
+					<td valign="top">
+						<ul>
+							  <li> 18 months </li>
+							  <li> 24 months </li>
+							  <li> 30 months </li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+			<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf">English version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a><img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p> -->
+			<p>The doctor will conduct routine screenings and tests including: </p>
+			<ul>
+				<li>Length and weight </li>
+			  <li>	Physical exam </li>
+				<li>	Developmental and behavioral assessment	</li>
+				<li>	Hemoglobin (12 months to test for anemia)</li>
+				<li>	Hearing</li>
+			</ul>
+<!-- <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="/assets/members/public/pdf/cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">English version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/>   /  <a href="/assets/members/public/pdf/spanish-cdc-childhood-adolescent-immun-schedule_09.pdf" target="_blank">Spanish version</a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/> </p> -->
+			<p>Your doctor may also ask about the following issues:</p>
+			<ul>
+				<li>	Diet </li>
+				<li>	Injury prevention </li>
+				<li>	Car seat use </li>
+				<li>	Dental health </li>
+				<li>	Effects of second hand smoke </li>
+			</ul>
+			<p>If your doctor does not ask about any of these health issues, you should bring them up if you have questions or concerns.</p>
+
+			<a name="children"></a>
+
+			<h3 class="titleHeader_20_0_10_0">Children and Adolescents (3 to 18 years)</h3>
+			<p>Children ages 3 to 18 should visit their pediatrician for a routine check-up each year. Routine screening and tests include:</p>
+			<ul>
+				<li>Height and weight (screening for healthy weight) </li>
+			  <li>	Blood pressure </li>
+				<li>	Vision screening</li>
+				<li>	Hearing </li>
+				<li>	Developmental and behavioral assessment </li>
+                <li>Depression screening from age 11 </li>
+			  <li>	Chlamydia and gonorrhea tests for sexually active girls </li>
+				<li>	HIV screening for adolescents ages 15-18</li>
+			  <li> Physical exam </li>
+			</ul>
+	  <p>Download the Infants and Children (0-6 years) Vaccine Schedule: <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
+			<p>Download the Children and Adolescents (7-18 years) Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/child-adolescent.html" target="_blank">CDC Website</a></p>
+	  <p>Your doctor may also ask about the following issues:</p>
+			 <ul>
+				<li>	Nutrition </li>
+				<li>Exercise </li>
+				<li>	Accident prevention (seatbelt or car seat use, helmets, etc.) </li>
+				<li>	Smoking, drug use, and safe sex practices </li>
+			</ul>
+			<p>If your doctor does not bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+
+			<a name="adults19_64"></a>
+
+			<h3 class="titleHeader_20_0_10_0">Adults (19+ years)</h3>
+	  		<p>Adults ages 19+ should visit their doctor for a routine check-up every one to three years and after 65+ annually.</p>
+				#if(!$wo.feature.isBBT && !$wo.defaultPolicy.isPopHealth)
+					#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6 ')))
+						#if($wo.defaultPolicy.isHSA)
+							<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+						#elseif(!$wo.defaultPolicy.isState)
+						  <p class="titleLinkicon"><a href="/assets/members/public/pdf/U12770b_BO_Preventive_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+						#end
+					#else
+					  <p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+					#end
+				#else
+			  	<p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+				#end
+			<ul>
+				<li>Routine screening and testing</li>
+				<li>Height and weight (body mass index-screening for healthy weight) </li>
+				<li>Blood pressure </li>
+				<li>Vision screening</li>
+				<li>Chlamydia and gonorrhea for women (age 24 and younger) </li>
+				<li>Cholesterol for men, starting at age 35 </li>
+				<li>Colon cancer<sup>1</sup> screening starting from 50-75 </li>
+				<li>Mammogram every one to two years for women ages 50-74</li>
+				<li>Pap test  every  3 years, from ages 21-65</li>
+		      <li>Bone density test for women to screen for osteoporosis, as recommended by your doctor</li>
+			    <li>HIV screening (up  to age 65)</li>
+			</ul>
+	  <p>Your doctor may also want to discuss the following:</p>
+			 <ul>
+				<li>Nutrition </li>
+				<li>Exercise </li>
+				<li>Seatbelt use </li>
+				<li>Smoking, drug and alcohol use </li>
+				<li>Depression </li>
+				<li>Safe sex </li>
+	  </ul>
+	  <p>If your doctor doesn't bring up any of these health issues, you should ask about them if you have questions or concerns.</p>
+
+			<h3 class="titleHeader_20_0_10_0">Vaccines</h3>
+			<p>Download the Adult Vaccine Schedule:  <a href="http://www.cdc.gov/vaccines/schedules/hcp/adult.html" target="_blank">CDC Website</a></p>
+<ul>
+				<li>	Tetanus, Diphtheria, pertussis (whooping cough) vaccine (Tdap vaccine once, 10 years after your last tetanus followed by Td every 10 years) </li>
+				<li>Influenza (Flu) vaccine (annually)</li>
+	  <li>	Hepatitis B vaccine (adults at risk)</li>
+				<li>	Measles-Mumps-Rubella (MMR) vaccine (adults who've never received vaccine) </li>
+				<li>	Meningococcal vaccine (college students in dormitories) </li>
+				<li>	Varicella (chickenpox) vaccine (adults who've never had chicken pox and never received vaccine) </li>
+				<li>	Human papillomavirus or HPV (protects against cervical cancer and genital warts) (adult women ages 19-26) </li>
+				<li>	Pneumococcal vaccine (adults at risk) </li>
+				<li>	Zoster (shingles) vaccine (adults 50+, one dose)<sup>3</sup></li>
+			</ul>
+
+			</div>
+			<div class="col-md-4">
+				<h3 class="titleHeader_20_0_10_0">Additional Resources</h3>
+				<p class="titleLinkicon"><a href="/assets/members/public/pdf/U2986_staying_healthy_web.pdf" target="_blank">Guidelines for Staying Healthy</a>. <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+				#if(!$wo.feature.isBBT)
+					#if ($loggedInMember.getPolicyAttributeByName($wo.defaultPolicy.index,'GrandFatherFlag') == 'Y' || ($wo.defaultPolicy.isState && ($loggedInMember.defaultMember.benefitPackage == '4EI9' || $loggedInMember.defaultMember.benefitPackage == '4EI8' || $loggedInMember.defaultMember.benefitPackage == '4EI6 ')))
+						#if($wo.defaultPolicy.isHSA)
+							<p class="titleLinkicon"><a href="/assets/members/public/pdf/U6602_HSA_Preventive_Care_Benefits_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+						#elseif(!$wo.defaultPolicy.isState)
+							<p class="titleLinkicon"><a href="/assets/members/public/pdf/U12770b_BO_Preventive_GF-508.pdf" target="_blank">View Your Preventive Care Benefits </a> <img src="/assets/members/public/images/pdficonsmall.gif" alt="PDF"/></p>
+						#end
+					#elseif(!$wo.defaultPolicy.isPopHealth)
+					  <p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+					#end
+				#elseif(!$wo.defaultPolicy.isPopHealth)
+				  <p class="titleLinkicon"><a href="/content/campaigns/preventive/index.htm" target="_blank">Learn More About Preventive Care</a></p>
+				#end
+			</div>
+			</div>
+
+			<div class="clear"></div>
+
+
+			<a name="adults65"></a>
+			<div  class="footnote vmargin25 col-md-12">
+				<p>1. One of the following screening tests is recommended:</p>
+				<ul>
+					<li>Flexible sigmoidoscopy, every five years </li>
+				    <li>Annual fecal occult blood test (FOBT) or stool sample
+				    </li>
+			      <li>	Total colon examination by colonoscopy, every 10 years </li>
+				</ul>
+			  <p>2. Refer to the BCBSNC Medical Policy on Bone Mineral Density Studies</p>
+			  <p>3 The shingles vaccine is covered in accordance with the  Food and Drug Administration (FDA) guidelines.&nbsp; </p>
+			  <p>BCBSNC provides these guidelines to help you understand how to best manage your health. </p>
+				<p>These are general health guidelines; your doctor may have more specific advice for you. These guidelines were written based on recommendations from national organizations, including the U.S. Preventive Services Task Force, American Academy of Pediatrics, and American Academy of Family Physicians. Our guidelines are updated periodically as new medical advances are made in preventive health.
+						To minimize out-of-pocket costs, visit an in-network provider for your preventive care. These guidelines are subject to the limitations of each member's preventive care benefits, so check your benefit booklet for details about your specific preventive care benefits. Services that are not delivered in an in-network, office-based setting or stand alone clinic filing as an office visit and services that include additional procedures or diagnostic services may be subject to your copay, deductible and coinsurance.</p>
+
+									</div>
+</div>
+</div>
+
+<style>
+ul{color: #666;}
+ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
+.activeNav {
+background: url("//www.bcbsnc.com/assets/members/public/images/member-spritemap.png") -770px -350px;
+width:155px;
+margin:0px !IMPORTANT;
+}
+.activeNav span {
+background: url('//www.bcbsnc.com/assets/members/public/images/member-spritemap.png') repeat scroll -949px -350px transparent;
+float:left;
+position: absolute;
+padding: 12px 5px 12px 0;
+margin:3px 0 0 181px ! important;
+}
+span.iconLink { display: inline-block; }
+span.iconPDF { display: inline-block; margin: 0 5px; }
+.iconLink { background: url('/assets/members/public/images/member-spritemap.png'); background-position: -588px -353px; height:14px; width:16px; text-indent: 135%; overflow: hidden; white-space: nowrap; margin:0px;}
+.lactation-container ul.account-navigation,
+.lactation-container ul.account-navigation li,
+.lactation-container ul.account-navigation a {
+width: 180px;
+}
+.lactation-container .lac-right-content {
+width:78%;
+}
+.lactation-container .lac-left-content {
+width: 16%;
+vertical-align: top;
+margin: 25px 20px 10px 0px;
+}
+.lactation-container .inline-container {
+display: inline-block;
+}
+.buttonblue { -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; height:30px; color:#fff; padding:5px 15px 7px 15px; font-size:14px; background: #239ad8 url('https://wwwps.bcbsnc.com/assets/members/public/images/member-spritemap-bgs.png') 0px -85px; border:1px solid #239ad8; }
+.buttonblue:hover { background-position: 0px -54px; border:1px solid #0074b0; cursor:pointer;}
+.vmargin25 { margin-top:25px; margin-bottom:25px; }
+.footnote  { font-size: .8em; color:#666; }
+.footnote sup { font-size: .7em; color:#666; }
+.footnote p, .footnote ul li{ font-size: 10px; }
+#wellnesshealthassessmentContainerGray {background: url("https://wwwps.bcbsnc.com/assets/members/public/images/health_assessment.jpg") no-repeat top left;background-color:#F3F3F3;padding:10px 0px 0px 200px;}
+.resources-subnav-removehide{display: block!important;}
+@media screen and (max-width: 991px) {
+.lactation-container .lac-right-content {
+width: 100%;
+}
+}
+@media screen and (max-width: 1200px) {
+.lactation-container ul.account-navigation,
+.lactation-container ul.account-navigation li,
+.lactation-container ul.account-navigation a {
+width: 161px;
+}
+}
+@media screen and (max-width: 766px) {
+#healthPartnership, #wellnesshealthassessmentContainerGray {
+background: none!important;
+padding:20px 0px 0px 0px!important;
+border: none!important;
+}
+}
+</style>
+#parse("members/secure/footer-responsive-classic.htm")
+#parse("members/secure/includes/benefitBookletTextDialog.htm")
+</div>
+
+<script src="/assets/members/public/data-capture/blueconnect-data-capture-jquery.min.js"></script>
+<script src="/assets/members/public/data-capture/manual-sso-tracking.js"></script>
+
+<!-- Analytics -->
+<script type="text/javascript">(function(){try{_satellite.pageBottom();}catch(e){}})();</script>
+
+</div>
+</body>
+</html>
