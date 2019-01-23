@@ -106,7 +106,7 @@
               		#if($wo.defaultPolicy.isPopHealth)
               				<li><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
-              		<li><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+              		<li><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)
               			#if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
               				<li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
@@ -307,6 +307,16 @@
 </div>
 
 <style>
+#pcg-navigator > span{
+  background: none;
+}
+ul.account-navigation .activeNav p.pcg-navigator{
+  position: absolute;
+  left: 180px;
+  border-top: 38px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 15px solid #008fda; 
+}
 ul{color: #666;}
 ul.account-navigation li.activeNav a:hover { background-color: #008fda; }
 .activeNav {
@@ -358,6 +368,9 @@ width: 100%;
 .lactation-container ul.account-navigation li,
 .lactation-container ul.account-navigation a {
 width: 161px;
+}
+ul.account-navigation .activeNav p.pcg-navigator, ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
+  left: 153px;
 }
 }
 @media screen and (max-width: 766px) {
