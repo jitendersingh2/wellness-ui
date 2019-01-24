@@ -45,35 +45,35 @@
 <head>
     <title>Blue Connect - Blue Cross and Blue Shield of North Carolina</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/assets/global/css/classic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/global/css/classic.css">
     <link rel="stylesheet" href="/assets/members/public/account/css/account.css">
 
-	<script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
-	<script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
-	<script src="/assets/global/js/libs/bcbsnc/angular/angular-tabby/1.0.0/tabby.js"></script>
-	<script src="/assets/global/js/libs/bcbsnc/angular/modal/1.0.0/directive.modal.js"></script>
-	<script src="/assets/global/js/libs/bcbsnc/angular/accessibility/1.0.0/accessibility.js"></script>
-	<script src="/assets/global/js/libs/underscore/1.4.2/underscore-min.js"></script>
-	<script src="/assets/global/js/bcbsnc.js"></script>
-	<script src="/members/secure/bcbsnc.js"></script>
-	<script src="/assets/members/public/scripts/member-secure.js"></script>
-	<script src="/assets/common/scripts/jquery.url.packed.js"></script>
-	<script src="/assets/global/js/libs/jquery/plugins/selectToUISlider.jQuery.js"></script>
-	<script src="/assets/common/scripts/jquery.accordionFAQ508.js"></script>
-	<script src="/assets/common/scripts/jquery.cookie.pack.js"></script>
-	<script src="/assets/common/scripts/jquery.ajaxmanager.js" ></script>
-	<script src="/assets/members/public/scripts/password_strength_plugin.js"></script>
-	<script src="/assets/common/scripts/jquery.printElement.js"></script>
-	<script src="/assets/common/scripts/pop-up-windows.js"></script>
+    <script src="/assets/global/js/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/assets/global/js/libs/angular/1.2.28/angular.min.js"></script>
+    <script src="/assets/global/js/libs/bootstrap/3.1.1/bootstrap.min.js"></script>
+    <script src="/assets/global/js/libs/bcbsnc/angular/angular-tabby/1.0.0/tabby.js"></script>
+    <script src="/assets/global/js/libs/bcbsnc/angular/modal/1.0.0/directive.modal.js"></script>
+    <script src="/assets/global/js/libs/bcbsnc/angular/accessibility/1.0.0/accessibility.js"></script>
+    <script src="/assets/global/js/libs/underscore/1.4.2/underscore-min.js"></script>
+    <script src="/assets/global/js/bcbsnc.js"></script>
+    <script src="/members/secure/bcbsnc.js"></script>
+    <script src="/assets/members/public/scripts/member-secure.js"></script>
+    <script src="/assets/common/scripts/jquery.url.packed.js"></script>
+    <script src="/assets/global/js/libs/jquery/plugins/selectToUISlider.jQuery.js"></script>
+    <script src="/assets/common/scripts/jquery.accordionFAQ508.js"></script>
+    <script src="/assets/common/scripts/jquery.cookie.pack.js"></script>
+    <script src="/assets/common/scripts/jquery.ajaxmanager.js" ></script>
+    <script src="/assets/members/public/scripts/password_strength_plugin.js"></script>
+    <script src="/assets/common/scripts/jquery.printElement.js"></script>
+    <script src="/assets/common/scripts/pop-up-windows.js"></script>
 
-	<!-- Universal JS/CSS Injector -->
-	<script src="/assets/global/js/swag.js"></script>
+    <!-- Universal JS/CSS Injector -->
+    <script src="/assets/global/js/swag.js"></script>
 
-	<script src="/assets/members/public/scripts/member.js"></script>
-	<script src="/assets/members/public/scripts/ms-reg.js"></script>
-	<script src="/assets/members/public/scripts/member-benefits.js"></script>
+    <script src="/assets/members/public/scripts/member.js"></script>
+    <script src="/assets/members/public/scripts/ms-reg.js"></script>
+    <script src="/assets/members/public/scripts/member-benefits.js"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements, media queries, and CSS3 selectors -->
   <!--[if lt IE 9]>
@@ -339,7 +339,10 @@
                                 </div>
                                 #elseif(($wo.defaultPolicy.isGroup && (!$wo.program.alere || $wo.program.incentFulfillment == 'G')) || ($wo.program.onlineHealthPortal && $wo.thisMember.age < 18))
                                 <div id="healthPartnership">
-                                    <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p>
+                                <!--    <p style="margin:5px 0;">Every day, we try to live our belief that most North Carolinians can take basic and inexpensive steps to improve their health. Our wellness programs encourage members to get healthy, help them understand and manage chronic health conditions, and promote preventive health activities.</p> -->
+                                <!-- BC-3970-->
+                                <p style="margin:5px;">You can take basic and inexpensive steps to improve your health. These resources will help you understand and manage chronic conditions and promote preventive health activities for your entire family.</p>
+
                                 </div>
                                 #end
 
