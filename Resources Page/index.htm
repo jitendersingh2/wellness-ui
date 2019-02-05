@@ -13,6 +13,7 @@
 #end
 
 #if($wo.defaultPolicy.medicareAdvantage || $wo.defaultPolicy.PDP)
+    #parse("members/secure/header.htm")
     #parse( "members/secure/wellness/medicare/home.htm" )
 #end
 
