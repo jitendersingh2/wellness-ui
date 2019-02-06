@@ -1,0 +1,392 @@
+<header class="responsive-header">
+    <div class="container-fluid background-blue-3 hidden-xs hidden-sm" style="padding: 5px 15px 1px 15px;">
+        <div class="header-static-width upper-nav-bar">
+                <div class="col-md-7">
+                </div>
+                <div class="col-md-5" style="text-align: right;">
+
+                    <div tabindex="0" class="onclick-menu">
+                        <ul class="top-bar list-inline">
+                            <li><a href="/content/azul/index.htm">Espa&ntilde;ol</a></li>
+                            <li><a href="/members/secure/account/contact.htm">Contact Us</a></li>
+                            <li class="fc-member-wrap cursor-pointer">
+                                <i class="fc-member"></i>
+                                <span class="fc-member-name">$wo.thisMember.firstName.substring(0,1).toUpperCase()$wo.thisMember.firstName.substring(1).toLowerCase() $wo.thisMember.middleInitial $wo.thisMember.lastName.substring(0,1).toUpperCase()$wo.thisMember.lastName.substring(1).toLowerCase()</span>
+                                <i class="fc-down-caret"></i>
+                            </li>
+                        </ul>
+                        <ul class="onclick-menu-content background-blue-4 border-1 border-blue">
+
+                            <div class="member-policy-content">
+                                <li>
+                                    <p>
+                                        <strong> Plan </strong>
+                                    </p>
+                                    <p>
+                                        <span> $wo.defaultPolicy.lobName - </span>
+                                        <span> $wo.defaultPolicy.externalID </span>
+                                    </p>
+                                </li>
+
+                                #if($wo.defaultPolicy.isGroup)
+                                <li>
+                                    <p>
+                                        <strong> Group Name </strong>
+                                    </p>
+                                    <p> $wo.defaultPolicy.groupName </p>
+                                </li>
+                                #end
+
+                                <li>
+                                    <p>
+                                        <strong> Effective Dates </strong>
+                                    </p>
+                                    <p>
+                                        <span> $wo.defaultPolicy.effectiveDate - </span>
+                                        #if($wo.defaultPolicy.topaz && $wo.defaultPolicy.isActive)
+                                        <span> ACTIVE </span>
+                                        #else
+                                        <span> $wo.defaultPolicy.expirationDate </span>
+                                        #end
+                                    </p>
+                                </li>
+
+                            </div>
+
+                                <li class="margin-vertical-1">
+                                    <a href="https://${webEnv}.bcbsnc.com/members/secure/account/index.htm">
+                                        <p> My Account Profile <i class="fc-settings"></i></p>
+                                    </a>
+
+                                </li>
+
+
+                            #if($wo.feature.contactPreferences)
+                                <li class="margin-vertical-1">
+                                    <a href="https://${webEnv}.bcbsnc.com/members/secure/account/preferences/index.htm">
+                                        <p> How We Contact You <i class="fc-display-settings"></i></p>
+                                    </a>
+                                </li>
+
+                            #end
+
+                                <li class="margin-vertical-1">
+                                    <a href="https://${accountEnv}.bcbsnc.com/member/action/store.do?forward=/page/passwordChange.do&successURL=https://${webEnv}.bcbsnc.com/members/secure/account/index.htm&failureURL=https://${webEnv}.bcbsnc.com/members/secure/account/index.htm">
+                                        <p> Change Password <i class="fc-password"></i> </p>
+                                    </a>
+
+                                </li>
+
+
+                                <li class="margin-vertical-1">
+                                    <a class="btn btn-primary logout-btn" href="https://${accountEnv}.bcbsnc.com/member/action/store.do?forward=/action/logout.do&successURL=https://${webEnv}.bcbsnc.com/members/public/exit.htm&failureURL=https://${webEnv}.bcbsnc.com/members/public/exit.htm" tabby><i style="float: left;"class="fc-logout"></i>Log Out</a>
+                                </li>
+
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="container-fluid background-blue-2">
+        <div class="row header-static-width">
+            #if($wo.defaultPolicy.isSignatureService)
+            <div class="col-md-3 hidden-sm hidden-xs" style="margin: 20px 0 15px 0;width:40%;">
+            #else
+            <div class="col-md-3 hidden-sm hidden-xs" style="margin: 20px 0 15px 0;">
+            #end    
+                #if($wo.defaultPolicy.isState)
+                    <a href="/members/secure/index.htm" tabby>
+                        <img src="/assets/members/public/dashboard/images/bcbsnc-shp-logo@2x.png" alt="state health plan" style="width: 400px;"></img>
+                    </a>
+                #elseif($wo.defaultPolicy.isSignatureService)
+                        <a href="/members/secure/index.htm" tabby>
+                        <img src="/assets/members/public/dashboard/images/logo-bcbsnc-blueconnect.png"
+                            srcset="/assets/members/public/dashboard/images/logo-bcbsnc-blueconnect@2x.png" width="200"
+                            style="margin-top:12px;margin-left:12px;" alt="BlueConnect"><img src="/assets/members/public/dashboard/images/SignatureService.png"
+                            srcset="/assets/members/public/dashboard/images/SignatureService.png" width="200"
+                            height="20" style="margin-top: 15px;margin-left:12px;padding-left: 12px;border-left: 1px solid #fff;"
+                            alt="Signature Service">
+                    </a>
+                #else
+                    <a href="/members/secure/index.htm" tabby>
+                        <img src="/assets/members/public/dashboard/images/logo-bcbsnc-blueconnect.png" alt="BlueConnect" style="width: 250px;"></img>
+                    </a>
+                #end
+            </div>
+            #if($wo.defaultPolicy.isSignatureService)
+            <div class="col-md-9 hidden-sm hidden-xs" style="margin: 20px 0 15px 0;text-align: right;width:60%;">
+            #else
+            <div class="col-md-9 hidden-sm hidden-xs" style="margin: 20px 0 15px 0; text-align: right;">
+            #end
+                <div class="header-links hidden-sm hidden-xs">
+                    <ul class="">
+                        #if($wo.defaultPolicy.isMedical)
+                            #if(!$wo.defaultPolicy.PDP && !$wo.defaultPolicy.medicareSupplement)
+                                <li>
+                                <a style="color: #fff;" href="/members/secure/doctors/search.htm" tabby>Find Doctors / Urgent Care
+                                    #if($wo.feature.pharmacy && !$wo.defaultPolicy.isState)
+                                    <span> / Prescriptions </span>
+                                    #end
+                                    #if($wo.defaultPolicy.isState && ($wo.thisMember.age > 17))
+                                    <span> / Pharmacy </span>
+                                    #end
+                                    #if($wo.defaultPolicy.hasDental)
+                                    <span> / Dentists </span>
+                                    #end
+                                </a>
+                                </li>
+                                #if(!$wo.defaultPolicy.PDP && !$wo.defaultPolicy.medicareSupplement && !$wo.defaultPolicy.medicareAdvantage)
+                                <li><a style="color: #fff;" href="/members/secure/doctors/search.htm" tabby>Estimate Treatment Costs </a></li>
+                                #end
+                            #end
+                        #end
+
+                        #if($wo.defaultPolicy.PDP)
+                                <li><a style="color: #fff;" href="/members/secure/prescriptions/index.htm" tabby>Find Prescriptions</a></li>
+                        #end
+
+                        #if($wo.defaultPolicy.isDental)
+                                <li><a style="color: #fff;"  href="/members/secure/doctors/search.htm" tabby>Find Dentists</a></li>
+                        #end
+
+                        #if($loggedInMember.getAttribute('enterprisePersonId'))
+                        <li class="header-secure-inbox">
+                            <a href="/members/secure/inbox#/">
+                                <i class="fc-email"></i>
+                            </a>
+                        </li>
+                        #end
+                    </ul>
+                </div>
+                <div class='header-search' tabindex='1'>
+                    <span class='search-icon-image search-animation'>
+                        <i class='icon-search'></i>
+                    </span>
+                    <input class="header-search-field search-desktop-field hide" id="queryInput" placeholder='Search things like "What is coinsurance" or "How do I pay my bill"' type='text'>
+                    <button class="header-search-submit search-submit-desktop hide">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- navbar -->
+<div class="container-fluid background-blue-1">
+    <div class="row header-static-width">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand visible-xs visible-sm" href="#">Blue Connect</a>
+                    </div>
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="padding-1 hidden-md hidden-lg text-right">
+                                <p>
+                                    <div class="header-search margin-right-2">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-btn">
+                                                <a href class="btn btn-default search-icon-image" tabby>
+                                                </a>
+                                            </span>
+                                            <input type="text" name="q" id="queryInput" ng-model="headerSearchQuery" class="header-search-field search-mobile-field" autocomplete="off" maxlength="256" title="Search" placeholder='Search things like "What is coinsurance" or "How do I pay my bill"' tabby></input>
+                                            <button class="header-search-submit search-submit-mobile">Search</button>
+                                        </div>
+                                    </div>
+                                    #if($loggedInMember.getAttribute('enterprisePersonId'))
+                                        <div class="padding-left-2" style="display: inline-block; font-size: 28px; border-left: 1px solid #71bad6; color: #fff;">
+                                            <a href="/members/secure/inbox#/"><i style="color: #fff;" class="fc-email"></i></a>
+                                        </div>
+                                    #end
+                                </p>
+
+                            </li>
+                            <li class="visible-xs visible-sm padding-1">
+                                <button type="button" class="collapsed member-dropdown-button" data-toggle="collapse" data-target="#memberInfoCollapse">
+
+                                    <i class="fc-member"></i>
+                                    <span class="fc-member-name">$wo.thisMember.firstName.substring(0,1).toUpperCase()$wo.thisMember.firstName.substring(1).toLowerCase() $wo.thisMember.middleInitial $wo.thisMember.lastName.substring(0,1).toUpperCase()$wo.thisMember.lastName.substring(1).toLowerCase()</span>
+                                    <i class="fc-up-caret"></i>
+                                    <span class="sr-only">Toggle navigation</span>
+
+                                </button>
+                                <div id="memberInfoCollapse" class="respMemberInfoContent collapse">
+                                    <ul style="padding: 20px 40px 10px 40px;">
+                                        <li>
+                                            <p class="font-bold font-Arial"> <strong> Plan </strong> </p>
+                                            <p> <span> $wo.defaultPolicy.lobName - </span><span> $wo.defaultPolicy.externalID </span> </p>
+                                        </li>
+
+                                    #if($wo.defaultPolicy.isGroup)
+                                        <li>
+                                            <p class="font-bold font-Arial"> <strong> Group Name </strong> </p>
+                                            <p> $wo.defaultPolicy.groupName </p>
+                                        </li>
+                                    #end
+
+                                        <li>
+                                            <p class="font-bold font-Arial"> <strong> Effective Dates </strong> </p>
+                                            <p> <span> $wo.defaultPolicy.effectiveDate - </span>
+                                                #if($wo.defaultPolicy.topaz) <span> ACTIVE </span> #else <span> $wo.defaultPolicy.expirationDate </span> #end
+                                            </p>
+                                        </li>
+
+                                        <li class="margin-vertical-1 border-top-blue-1 padding-top-2">
+                                            <a class="color-blue-4" href="https://${webEnv}.bcbsnc.com/members/secure/account/index.htm">
+                                                <p> My Account Profile <i class="fc-settings"></i></p>
+                                            </a>
+                                        </li>
+
+
+                                    #if($wo.feature.contactPreferences)
+                                        <li class="margin-vertical-1 border-top-blue-1 padding-top-2">
+                                            <a class="color-blue-4" href="https://${webEnv}.bcbsnc.com/members/secure/account/preferences/index.htm">
+                                                <p> How We Contact You <i class="fc-display-settings"></i></p>
+                                            </a>
+                                        </li>
+
+                                    #end
+
+                                        <li class="margin-vertical-1 border-top-blue-1 padding-top-2">
+                                            <a class="color-blue-4" href="https://${accountEnv}.bcbsnc.com/member/action/store.do?forward=/page/passwordChange.do&successURL=https://${webEnv}.bcbsnc.com/members/secure/account/index.htm&failureURL=https://${webEnv}.bcbsnc.com/members/secure/account/index.htm">
+                                                <p> Change Password <i class="fc-password"></i> </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="/members/secure/index.htm" tabby><i class="fc fc-home" style="font-size: 22px;"></i><i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                            #if($wo.feature.benefits)
+                              #if($wo.defaultPolicy.medicareSupplement)
+                            -->
+                            <li><a href="/members/secure/benefits/index.htm" tabby>Resources<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                              #else
+                            -->
+                            <li><a href="/members/secure/benefits/index.htm" tabby>Benefits<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                              #end
+                            #end
+                            #if($wo.feature.claims)
+                            -->
+                            <li><a href="/members/secure/claims/index.htm" tabby>Claims<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                            #end
+                            #if($wo.feature.doctorsAndFacilities)
+                            -->
+                            <li><a href="/members/secure/doctors/index.htm" tabby>Doctors &amp; Facilities<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                            #end -->
+                            
+                                <li class="header-desktop-element"><a href="/members/secure/wellness/index.htm" tabby>Wellness<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                                    <li class="header-mobile-element"><a href="/members/secure/wellness/index.htm" tabby>Wellness - Resources Home<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                                    #if($wo.defaultPolicy.isPopHealth)
+                                        <li class="header-mobile-element"><a href="/members/secure/wellness/health_care_support.htm" tabby>Wellness - Health Care Support<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                                    #end
+                                    <li class="header-mobile-element"><a href="/members/secure/wellness/preventive_care_guidelines.htm" tabby>Wellness - Preventive Care Guidelines<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                                
+                    
+                            <!--
+                            #if($wo.feature.prescriptions)
+                            -->
+                            <li><a href="/members/secure/prescriptions/index.htm" tabby>Prescriptions<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                            #end
+                            #if($wo.defaultPolicy.isDental)
+                            -->
+                            <li><a href="/members/secure/dental/index.htm" tabby>Plan Details<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <!--
+                            #end
+                            -->
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/members/secure/account/index.htm" tabby>Account/Profile<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            <li><a href="/members/secure/account/help.htm" tabby>Help<i style="float: right;" class="visible-xs visible-sm fc-right-caret"></i></a></li>
+                            #if($wo.defaultPolicy.isMedical)
+                                #if(!$wo.defaultPolicy.PDP && !$wo.defaultPolicy.medicareSupplement)
+                                    <li class="visible-xs visible-sm">
+                                        <a class="color-blue-4" href="/members/secure/doctors/search.htm" tabby>Find Doctors / Prescriptions / Urgent Care
+                                            #if($wo.defaultPolicy.hasDental)
+                                            <span> / Dentists </span>
+                                            #end
+                                        </a>
+                                    </li>
+                                    <li class="visible-xs visible-sm"><a class="color-blue-4" href="/members/secure/doctors/search.htm" tabby>Estimate Treatment Costs </a></li>
+                                #end
+                            #end
+                            #if($wo.defaultPolicy.PDP)
+                            <li class="visible-xs visible-sm"><a class="color-blue-4" href="/members/secure/prescriptions/index.htm" tabby>Find Prescriptions</a></li>
+                            #end
+                            #if($wo.defaultPolicy.isDental)
+                            <li class="visible-xs visible-sm"><a class="color-blue-4" href="/members/secure/doctors/search.htm" tabby>Find Dentists</a></li>
+                            #end
+                            <li class="visible-xs visible-sm"><a class="color-blue-4" href="/members/secure/account/contact.htm" style="color: #fff;" tabby>Contact Us</a></li>
+                            <li class="visible-xs visible-sm"><a class="color-blue-4" href="/content/azul/index.htm" style="color: #fff;" tabby>Espa&ntilde;ol</a></li>
+                            <li class="visible-xs visible-sm padding-1"><a class="btn btn-primary logout-btn" href="https://${accountEnv}.bcbsnc.com/member/action/store.do?forward=/action/logout.do&successURL=https://${webEnv}.bcbsnc.com/members/public/exit.htm&failureURL=https://${webEnv}.bcbsnc.com/members/public/exit.htm" tabby><i style="float: left;"class="fc-logout"></i>Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<style>
+    @media screen and (max-width: 992px) {
+        .nav li.header-mobile-element {
+            display: block!important;
+        }
+        .nav li.header-desktop-element {
+            display: none;
+        }
+    }
+    .nav li.header-mobile-element {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var searchIsOpen = false;
+        $(".search-animation").click(function(event) {
+            event.preventDefault();
+            if(searchIsOpen){
+                $(".header-search").animate({width: "40px"}, 200, function() {
+                    //$(".header-links").removeClass("hide");
+                    $(".header-links").removeClass("hide").fadeIn("fast");
+                    $(".header-search-field").addClass("hide");
+                    $(".search-animation").removeClass("close-icon-image");
+                    $(".header-search-submit").addClass("hide");
+                    searchIsOpen = false;
+                });
+            }else{
+                $(".header-links").addClass("hide");
+                $(".header-search-field").removeClass("hide").focus();
+                $(".header-search").animate({width: "80%"}, 200, function() {
+                    $(".header-search-submit").removeClass("hide");
+                    $(".search-animation").addClass("close-icon-image");
+                    searchIsOpen = true;
+                });
+            }
+        });
+        $(".search-submit-desktop").click(function(){
+            if($(".search-desktop-field").val()){
+                var searchString = 'https://wwwps.bcbsnc.com/members/public/gsa/index.htm?q=' + jQuery('.search-desktop-field').val();
+                console.log(searchString);
+                window.location = searchString;
+            }
+        });
+        $(".search-submit-mobile").click(function(){
+            if($(".search-mobile-field").val()){
+                var searchString = 'https://wwwps.bcbsnc.com/members/public/gsa/index.htm?context=member_auth&amp;content=secure&amp;client=member_auth&amp;output=xml_no_dtd&amp;proxystylesheet=member_auth&amp;proxyreload=1&amp;sort=date:D:L:d1&amp;entqr=3&amp;oe=UTF-8&amp;ie=UTF-8&amp;ud=1&amp;site=default_collection&amp;getfields=audience.description.title.filesize&amp;num=25&amp;numgm=5&amp;filter=0&amp;q=' + jQuery('.search-mobile-field').val();
+                console.log(searchString);
+                window.location = searchString;
+            }
+        });
+    });
+</script>

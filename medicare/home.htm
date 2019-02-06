@@ -1,0 +1,74 @@
+#set($header = "secure" )
+#set($footer = "secure" )
+
+#parse( "members/secure/header.htm" )
+
+<h1 id="main-content" tabindex="-1">Wellness</h1>
+<div class="pageContent">
+	#if(!$wo.defaultPolicy.PDP)
+	<h2>Disease Management Programs</h2>
+	<p>Designed for members with specific chronic conditions, such as:</p>
+	<ul>
+		<li>Congestive Heart Failure</li>
+		<li>Diabetes</li>
+		<li>Cardiovascular Disease</li>
+		<li>Chronic Obstructive Pulmonary Disease</li>
+	</ul>
+	<p>These programs feature an array of resources to help members manage their conditions. Each program includes educational materials, support from registered nurses, self-management supplies and more.</p>
+	<p><a href="/members/secure/wellness/medicare/health-management.htm">Disease Management Programs</a></p>
+	#end
+
+	#if(!$wo.defaultPolicy.PDP)
+	<h2>Case Management</h2>
+	<p>In certain health situations, members can work with a case manager. Case managers help provide education, support, and help with self-management behaviors, and assistance with monitoring health care needs and identifying necessary resources.</p>
+	<p><a href="/members/secure/wellness/medicare/case-management.htm">Case Management</a></p>
+	#end
+
+	<h2>Medication Therapy Management Program (MTMP)</h2>
+	<p>The Medication Therapy Management Program assists members who have been identified by the Plan as taking multiple medications for the treatment of certain medical conditions. </p>
+	<p>The program helps members to understand better how to take their medicines safely and effectively. </p>
+	<p>The Plan provides information to assist members to avoid potential medical complications related to their medicines and to help members take their medicines the way their doctor has prescribed.</p>
+	<p><a href="/members/secure/wellness/medicare/medication-therapy-management.htm">Medication Therapy Management Program</a></p>
+
+	#if(!$wo.defaultPolicy.PDP)
+    <!--<h2>Preventive Care Guidelines</h2>
+	<p>Review this list of guidelines to determine what kinds of immunizations, screenings and check-ups you should receive each year.</p>
+	<p><a href="/members/secure/wellness/medicare/preventive-care-guidelines.htm">Preventive Care Guidelines</a></p>-->
+
+	<h2>Flu and Pneumonia Shots</h2>
+	<p>Learn how to receive these shots at no cost to you.</p>
+	<p><a href="/members/secure/wellness/medicare/flu-and-pneumonia-shots.htm">Flu and Pneumonia Shots</a> </p>
+
+	<h2>End of Life Care Planning</h2>
+	<p>In accordance with federal requirements, BCSNC provides this end-of-life care information. Learn more about end-of-life care issues.</p>
+	<p><a href="/members/secure/wellness/medicare/end_of_life_care.htm">End of Life Care Planning</a></p>
+
+	<h2>Going Home From the Hospital?</h2>
+	<p>Leaving the hospital can be an overwhelming time. Unfortunately, some people find themselves back in the emergency room after a hospital discharge. Find out what you can do to help avoid this situation with our Hospital Discharge Checklist.</p>
+	<p><a href="/members/secure/wellness/medicare/hospital.htm">Going Home From the Hospital</a></p>
+    #end
+
+	<h2>Medication Safety and You</h2>
+	<p>As we get older, certain medications can be dangerous for people ages 65 and older.  Learn more about medications that have a greater risk of side effects for adults aged 65 years and older.</p>
+	<p><a href="/members/secure/wellness/medicare/medication-safety.htm">Medication Safety and You</a></p>
+
+	<h2>Tips for Taking Your Medication</h2>
+	<p>It is very important to take your medicines as directed by your health care provider. Get tips for remembering to take your medications and find out how you can save money on prescription medications.</p>
+	<p><a href="/members/secure/wellness/medicare/tips-for-taking-meds.htm">Tips for Taking Your Medication</a></p>
+
+	#if($wo.defaultPolicy.medicareAdvantage)
+	<h2>In-Home Assessments with Signify Health<sup>TM</sup> (formerly Advance Health)</h2>
+	<p>We want to help you and your health care team best meet your health needs. One way we are doing this is by offering an In-Home Health Assessment.</p>
+	<p><a href="/members/secure/wellness/medicare/assessment.htm">In-Home Assessments with Signify</a></p>
+	#end
+	
+	</div>
+
+	<hr/>
+	<p>The information on this page is current as of 10/01/2018.</p>
+
+#parse("members/secure/wellness/medicare/navigation.htm")
+#parse("members/secure/footer.htm")
+
+#stop
+

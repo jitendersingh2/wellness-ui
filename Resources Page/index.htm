@@ -13,7 +13,6 @@
 #end
 
 #if($wo.defaultPolicy.medicareAdvantage || $wo.defaultPolicy.PDP)
-    #parse("members/secure/header.htm")
     #parse( "members/secure/wellness/medicare/home.htm" )
 #end
 
@@ -209,6 +208,9 @@
         .resources-action-btn{
             margin-bottom: 2px;
         }
+        #healthPartnership {		
+            height: 180px;		
+        }
     }
     @media screen and (max-width: 768px) {
         #main-content {
@@ -251,7 +253,7 @@
 <body lang="en-US">
     <div>
         <div ng-app ng-controller="bcbsncController" id="bd" role="main">
-            #parse("members/secure/header-responsive-classic.htm")
+            #parse("members/secure/header-wellness.htm")
     
             <div class="outer-container lactation-container">
                 <div class="content-container lactation-content container">

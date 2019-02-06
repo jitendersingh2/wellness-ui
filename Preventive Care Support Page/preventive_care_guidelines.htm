@@ -64,8 +64,9 @@
   <div>
 	<div ng-app ng-controller="bcbsncController" id="bd" role="main">
 
-    #parse("members/secure/header-responsive-classic.htm")
-
+	#parse("members/secure/header-responsive-classic.htm")
+		
+		<!-- navbar -->
 		<div class="outer-container lactation-container">
           <div class="content-container lactation-content container">
 
@@ -106,7 +107,7 @@
               		#if($wo.defaultPolicy.isPopHealth)
               				<li><a href="/members/secure/wellness/health_care_support.htm">Health Care Support</a></li>
               		#end
-              		<li><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
+              		<li id="pcg-navigator"><p class="pcg-navigator"></p><a href="/members/secure/wellness/preventive_care_guidelines.htm">Preventive Care Guidelines</a></li>
               		#if(!$wo.defaultPolicy.isState)
               			#if($wo.program.diseaseManagement == 'C' || $wo.program.diseaseManagement == 'L')
               				<li class="care"><a href="/members/secure/wellness/condition_care.htm">Condition Care</a></li>
@@ -126,7 +127,7 @@
   <div class="">
 			<div class="col-md-8">
 			<h3 class="titleHeaderVisitingtheDoctor">Visiting the Doctor</h3>
-			<p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. BCBSNC has compiled the following health guidelines for family members of all ages.  </p>
+			<p>Regular doctor checkups and screenings are important in keeping yourself and your family in good health. Blue Cross NC has compiled the following health guidelines for family members of all ages.  </p>
 			<p>Check your
 				#parse( "members/secure/benefits/include_benefits_booklet.htm" )
 				for your specific preventive health benefits.</p>
@@ -369,8 +370,12 @@ width: 100%;
 .lactation-container ul.account-navigation a {
 width: 161px;
 }
+.lactation-container ul.account-navigation #pcg-navigator,
+.lactation-container ul.account-navigation #pcg-navigator a {
+width: 150px;
+}
 ul.account-navigation .activeNav p.pcg-navigator, ul.account-navigation p.resources-navigator, ul.account-navigation p.hcs-navigator {
-  left: 153px;
+  left: 150px;
 }
 }
 @media screen and (max-width: 766px) {
@@ -448,7 +453,7 @@ border: none!important;
   <div>
 	<div ng-app ng-controller="bcbsncController" id="bd" role="main">
 
-    #parse("members/secure/header-responsive-classic.htm")
+    #parse("members/secure/header-wellness.htm")
 
 		<div class="outer-container lactation-container">
           <div class="content-container lactation-content container">
@@ -924,7 +929,6 @@ border: none!important;
 
 <!-- Analytics -->
 <script type="text/javascript">(function(){try{_satellite.pageBottom();}catch(e){}})();</script>
-
 </div>
 </body>
 </html>
